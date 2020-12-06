@@ -2,19 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import products from './products';
 
-function Item(props) {
-    return <li>{props.item}</li>;
-}
+import ProductTitle from './components/ProductTitle/ProductTitle';
+import ProductList from './components/ProductList/ProductList';
 
 function App() {
     return (    
         <div className='wrapper'>
-            <h1 className='title'>Список товаров</h1>
-            <ul className='list'>
-                {products.map((el, id) =>  id < 3 && <Item key={el.key} item={el.name} />)}
-            </ul>
+            <ProductTitle title="Список товаров" />
+            <ProductList />
         </div>
     ) 
 }
