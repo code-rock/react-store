@@ -8,12 +8,12 @@ import ProductList from './components/ProductList/ProductList';
 
 function App() {
     return (    
-        <div className='main'>
+        <main>
             <ListTitle>
                 Список товаров
             </ListTitle>
             <ProductList />
-        </div>
+        </main>
     ) 
 }
 
