@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import ProductTitle from './components/ProductTitle/ProductTitle';
+import ListTitle from './components/ListTitle/ListTitle';
 import ProductList from './components/ProductList/ProductList';
 
 function App() {
     return (    
-        <div className='wrapper'>
-            <ProductTitle title="Список товаров" />
+        <div className='main'>
+            <ListTitle>
+                Список товаров
+            </ListTitle>
             <ProductList />
         </div>
     ) 
