@@ -2,6 +2,7 @@ import React from 'react';
 
 import ProductItem from 'csssr-school-product-card';
 import RatingComponent from '../RatingComponent/RatingComponent';
+import ProductPrice from '../ProductPriсe/ProductPriсe';
 
 import './ProductList.css';
 
@@ -15,8 +16,8 @@ function ProductList() {
                       isInStock={el.isInStock}
                       img={el.imgProduct}
                       title={el.name}
-                      price={el.price}
-                      subPriceContent={el.subPriceContent}
+                      price={ProductPrice(el.price, '₽')}
+                      subPriceContent={ProductPrice(el.subPriceContent, '₽', 's')}
                       maxRating={5}
                       rating={el.rating}
                       ratingComponent={RatingComponent}

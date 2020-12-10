@@ -1,0 +1,19 @@
+.price {
+  display: inline-flex;
+  margin-right: 8px;
+  font-style: "OpenSans";
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.price-part {
+  padding-right: 3px;
+}
+
+.m {
+  font-size: 20px;
+}
+
+.s {
+  font-size: 12px;
+}

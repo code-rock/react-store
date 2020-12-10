@@ -22,7 +22,7 @@
     "name": "Имя товара3",
     "isInStock": false,
     "imgProduct": "./photo/3.png",
-    "price": "23000",
+    "price": "2300000",
     "subPriceContent": "",
     "rating": 2
   },
@@ -31,7 +31,7 @@
     "name": "Имя товара4",
     "isInStock": false,
     "imgProduct": "./photo/4.png",
-    "price": "23000",
+    "price": "230000",
     "subPriceContent": "",
     "rating": 4
   },
@@ -40,7 +40,7 @@
     "name": "Имя товара5",
     "imgProduct": "./photo/5.png",
     "isInStock": true,
-    "price": "23000",
+    "price": "230",
     "subPriceContent": "",
     "rating": 0
   },
@@ -49,7 +49,7 @@
     "name": "Имя товара6",
     "isInStock": false,
     "imgProduct": "./photo/6.png",
-    "price": "23000",
+    "price": "2300",
     "subPriceContent": "",
     "rating": 5
   }
