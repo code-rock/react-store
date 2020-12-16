@@ -1,23 +1,21 @@
 import React from 'react';
-
 import ProductItem from 'csssr-school-product-card';
 import RatingComponent from '../RatingComponent/RatingComponent';
 import ProductPrice from '../ProductPriсe/ProductPriсe';
-
 import './ProductList.css';
+import LogRender from '../../containers/LogRender';
 
-import products from '../../products';
-
-function ProductList() {
-    return Array.isArray(products) && !!products.length 
+class ProductList extends LogRender {
+    render() {
+        return Array.isArray(this.props.products) && !!this.props.products.length 
             ? <ul className='list'>
-                {products.map((el) =>  ( 
+                {this.props.products.map((el) =>  ( 
                   <ProductItem
                       isInStock={el.isInStock}
                       img={el.imgProduct}
                       title={el.name}
-                      price={ProductPrice(el.price, '₽')}
-                      subPriceContent={ProductPrice(el.subPriceContent, '₽', 's')}
+                      price={<ProductPrice price={el.price} curr={'₽'} size={'m'} />}
+                      subPriceContent={<ProductPrice price={el.subPriceContent} curr={'₽'} size={'s'} />}
                       maxRating={5}
                       rating={el.rating}
                       ratingComponent={RatingComponent}
@@ -26,6 +24,7 @@ function ProductList() {
                 ))}
               </ul>
            : <p>Ничего не найдено...</p>;
+      }
 }
 
 export default ProductList;

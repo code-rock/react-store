@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 import ListTitle from './components/ListTitle/ListTitle';
-import ProductList from './components/ProductList/ProductList';
+import ProductPage from './containers/ProductPage';
 
 function App() {
     return (    
@@ -12,7 +12,7 @@ function App() {
             <ListTitle>
                 Список товаров
             </ListTitle>
-            <ProductList />
+            <ProductPage />
         </main>
     ) 
 }

@@ -1,0 +1,33 @@
+.filter {
+  width: 240px;
+  display: grid;
+  grid-template: 28px 16px 30px 24px 32px / 30px 90px 16px 30px 90px;
+}
+
+.filter-title {
+  grid-area: 1 / 1 / 2 / 6;
+}
+
+.filter-button {
+  grid-area: 5 / 1 / 6 / 6;
+}
+
+.start-label {
+  grid-area: 3 / 1 / 4 / 2;
+}
+
+.start-input {
+  grid-area: 3 / 2 / 4 / 3;
+}
+
+.finish-label {
+  grid-area: 3 / 4 / 4 / 5;
+}
+
+.finish-input {
+  grid-area: 3 / 5 / 4 / 6;
+}
+
+.error {
+  grid-area: 4 / 1 / 5 / 6;
+}

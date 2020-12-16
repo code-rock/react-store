@@ -1,0 +1,6 @@
+.content-columns {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  justify-items: right;
+  column-gap: 48px;
+}
