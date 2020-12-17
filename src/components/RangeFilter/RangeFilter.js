@@ -23,7 +23,7 @@ class RangeFilter extends LogRender {
     render() {
         const {title, min, max, errortype, errorfrom, errorto, handleChange, handleClick} = this.props;
 
-        return <form>
+        return <form onSubmit={handleClick}>
                     <fieldset className="filter">
                         <legend className="filter__title">{title}</legend>
 
@@ -53,8 +53,7 @@ class RangeFilter extends LogRender {
 
                         <button className="filter__button" 
                                 type="submit"
-                                disabled={errorto || errorfrom}
-                                onSubmit={handleClick}>Применить</button>
+                                disabled={errorto || errorfrom}>Применить</button>
                     </fieldset>
                </form>
     }

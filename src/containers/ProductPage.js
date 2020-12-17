@@ -35,7 +35,9 @@ class ProductPage extends React.Component {
         return {min, max};
     }
 
-    applyFilterPrice = () => {
+    applyFilterPrice = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         const from = Number(this.priceFilter.current.inputFrom.current.value);
         const to = Number(this.priceFilter.current.inputTo.current.value);
         const shouldShow = products.filter(product => ((product.price >= from) && (product.price <= to)));
