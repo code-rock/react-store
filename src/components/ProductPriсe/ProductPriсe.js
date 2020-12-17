@@ -1,19 +1,20 @@
 import React from 'react';
 
 import './ProductPrice.css';
+import LogRender from '../../containers/LogRender';
+import disaggregation from '../../utils/disaggregation';
 
-function disaggregation(str = '', n = 3) {
-     let firstNumRank = str.length % n;
-     return [str.substring(0, firstNumRank), ...str.substring(firstNumRank).match(/.{1,3}/g)];
-}
-
-function ProductPrice(price, curr, size = 'm') {
-    if (price) {
-    const discharges = disaggregation(price);
-    return <div className={'price ' + size}>
-              {discharges.map(item => <span className="price-part">{item}</span>)}
-              {curr}
-           </div>
+class ProductPrice extends LogRender {
+    render() {
+        if (this.props.price) {
+            const discharges = disaggregation(this.props.price);
+            return <div className={`price ${this.props.size}`}>
+                       {discharges.map(item => (<span className="price-part">{item}</span>))}
+                       {this.props.curr}
+                   </div>;
+        } else {
+            return <div></div>
+        }
     }
 }
 

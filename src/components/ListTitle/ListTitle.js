@@ -1,9 +1,13 @@
 import React from 'react';
-
 import './ListTitle.css';
+import LogRender from '../../containers/LogRender';
 
-function ListTitle({children}) {
-    return <h1 className='title'>{children}</h1>;
+class ListTitle extends LogRender {
+    render() {
+         return <h1 className='title'>
+                    {this.props.children}
+                </h1>;
+    }
 }
 
 export default ListTitle;
