@@ -2,11 +2,6 @@ import React from 'react';
 import './RangeFilter.css';
 import LogRender from '../../containers/LogRender';
 
-const errorText = {
-    np: '*Введите положительное число',
-    sp: '*Стартовавя цена привысила придельную'
-};
-
 class RangeFilter extends LogRender {
     constructor(props) {
         super(props);
@@ -48,7 +43,7 @@ class RangeFilter extends LogRender {
                                onKeyDown={this.handleKeyDown} />
 
                         <span className={`filter__error ${errorto || errorfrom ? 'filter__error_show' : ''}`}>
-                            {errorText[errortype]}
+                            {errortype}
                         </span>
 
                         <button className="filter__button" 

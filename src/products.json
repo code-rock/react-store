@@ -4,7 +4,7 @@
     "name": "Имя товара1",
     "isInStock": true,
     "imgProduct": "./photo/1.png",
-    "price": "23000",
+    "price": "23",
     "subPriceContent": "25000",
     "rating": 4
   },

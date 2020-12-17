@@ -6,6 +6,11 @@ import ContentColumn from '../components/ContentColumn/ContentColumn';
 
 import products from '../products';
 
+const errorText = [
+    '*Введите положительное число',
+    '*Стартовавя цена привысила придельную'
+];
+
 class ProductPage extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +19,7 @@ class ProductPage extends React.Component {
             productsWorthShowing: products,
             errorFrom: false,
             errorTo: false,
-            errorType: 'sp'
+            errorType: errorText[0]
         }
 
         this.prices = this.getReasonablePrices(products);
@@ -49,11 +54,11 @@ class ProductPage extends React.Component {
         const to = Number(this.priceFilter.current.inputTo.current.value);
         
         if (from > to) {
-            this.setState({ errorFrom: true, errorType: 'sp'});
+            this.setState({ errorFrom: true, errorType: errorText[1]});
         } else if (from < 0) {
-            this.setState({ errorFrom: true, errorType: 'np'}); 
+            this.setState({ errorFrom: true, errorType: errorText[0]}); 
         } else if (to < 0) {
-            this.setState({ errorTo: true,  errorType: 'np' });
+            this.setState({ errorTo: true,  errorType: errorText[0]});
         } else {
             this.setState({ errorTo: false, errorFrom: false });
         }

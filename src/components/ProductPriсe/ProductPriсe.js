@@ -2,11 +2,7 @@ import React from 'react';
 
 import './ProductPrice.css';
 import LogRender from '../../containers/LogRender';
-
-function disaggregation(str = '', n = 3) {
-     let firstNumRank = str.length % n;
-     return [str.substring(0, firstNumRank), ...str.substring(firstNumRank).match(/.{1,3}/g)];
-}
+import disaggregation from '../../utils/disaggregation';
 
 class ProductPrice extends LogRender {
     render() {
