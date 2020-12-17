@@ -35,14 +35,14 @@ class ProductPage extends React.Component {
         return {min, max};
     }
 
-    handleButtonClick = () => {
+    applyFilterPrice = () => {
         const from = Number(this.priceFilter.current.inputFrom.current.value);
         const to = Number(this.priceFilter.current.inputTo.current.value);
         const shouldShow = products.filter(product => ((product.price >= from) && (product.price <= to)));
         this.setState({ productsWorthShowing: shouldShow });
     }
 
-    checkInput = () => {
+    checkPriceFilter = () => {
         const from = Number(this.priceFilter.current.inputFrom.current.value);
         const to = Number(this.priceFilter.current.inputTo.current.value);
         
@@ -68,8 +68,8 @@ class ProductPage extends React.Component {
                              errorto={errorTo}
                              min={this.prices.min}
                              max={this.prices.max}
-                             handleChange={this.checkInput}  
-                             handleClick={this.handleButtonClick}/>
+                             handleChange={this.checkPriceFilter}  
+                             handleClick={this.applyFilterPrice}/>
                 <ProductList products={productsWorthShowing} />
             </ContentColumn>;
     }
