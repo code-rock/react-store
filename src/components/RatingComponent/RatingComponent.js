@@ -7,7 +7,11 @@ import './RatingComponent.css';
 
 class RatingComponent extends LogRender {
     render() {
-        return <div className="star">{this.props.isFilled ? <FilledStar /> : <EmptyStar />}</div>
+        const { isFilled } = this.props;
+
+        return  <div className="star">
+                    {isFilled ? <FilledStar /> : <EmptyStar />}
+                </div>
     }
 };
 
