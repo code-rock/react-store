@@ -27,12 +27,12 @@ export default function withState(HoccedComponent){
             const { value } = this.state;
             const { id } = this.props;
 
-            return <HoccedComponent onChange={this.handleChange}
+            return <HoccedComponent {...this.props}
+                                    onChange={this.handleChange}
                                     onKeyDown={this.handleKeyDown} 
                                     value={value}
                                     id={id}
-                                    min="0"
-                                    {...this.props} />;
+                                    min="0" />;
         }
   }
 }
