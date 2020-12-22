@@ -28,7 +28,7 @@ class ProductPage extends React.Component {
         if (pricemin !== prevState.pricemin ||
             pricemax !== prevState.pricemax ||
             discount !== prevState.discount) {
-                this.setState({ productsWorthShowing: this.getProducts(pricemin, pricemax, discount)});
+                this.setState({ productsWorthShowing: this.getProducts(pricemin, pricemax, discount) });
         }
     }
 

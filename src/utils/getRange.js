@@ -3,7 +3,7 @@
 
 const getRange = (arr = [], property = 'price') => {
     if (!Array.isArray(arr) && !arr.length) {
-        return { min: '0', max: '0' }
+        return { min: 0, max: 0 }
     }
 
     let min = arr[0][property];
