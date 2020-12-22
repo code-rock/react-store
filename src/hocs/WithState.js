@@ -25,13 +25,11 @@ export default function withState(InputCompoment){
 
         render() {
             const { value } = this.state;
-            const { id } = this.props;
 
             return <InputCompoment {...this.props}
                                     onChange={this.handleChange}
                                     onKeyDown={this.handleKeyDown} 
                                     value={value}
-                                    id={id}
                                     min="0" />;
         }
   }
