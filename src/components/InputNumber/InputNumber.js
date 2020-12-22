@@ -1,7 +1,7 @@
 import React from 'react';
 import './InputNumber.css';
 import LogRender from '../../containers/LogRender';
-import withState from '../../containers/WithState';
+import withState from '../../hocs/WithState';
 
 export class InputNumber extends LogRender {
     render() {

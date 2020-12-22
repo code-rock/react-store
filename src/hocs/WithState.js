@@ -1,7 +1,7 @@
 import React from 'react';
-import LogRender from './LogRender';
+import LogRender from '../containers/LogRender';
 
-export default function withState(HoccedComponent){
+export default function withState(InputCompoment){
     return class extends LogRender {
         constructor(props) {
             super(props);
@@ -27,7 +27,7 @@ export default function withState(HoccedComponent){
             const { value } = this.state;
             const { id } = this.props;
 
-            return <HoccedComponent {...this.props}
+            return <InputCompoment {...this.props}
                                     onChange={this.handleChange}
                                     onKeyDown={this.handleKeyDown} 
                                     value={value}

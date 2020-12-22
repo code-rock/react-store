@@ -6,6 +6,7 @@ import ContentColumn from '../components/ContentColumn/ContentColumn';
 import DiscountFilter from '../components/DiscountFilter/DiscountFilter';
 import products from '../products';
 import getRange from '../utils/getRange';
+import { isPriceInRange, isDiscount } from '../utils/checks';
 
 class ProductPage extends React.Component {
     constructor(props) {
@@ -20,26 +21,26 @@ class ProductPage extends React.Component {
             discount: 0
         }
     }
-    
-    isPriceInRange = (price, min, max) => {
-        return price >= Number(min) && price <= Number(max);
+
+    componentDidUpdate(prevProps, prevState) {
+        const { pricemin, pricemax, discount } = this.state;
+
+        if (pricemin !== prevState.pricemin ||
+            pricemax !== prevState.pricemax ||
+            discount !== prevState.discount) {
+                this.setState({ productsWorthShowing: this.getProducts(pricemin, pricemax, discount)});
+        }
     }
 
-    isDiscount = (withSale, beforeSale, discount) => {
-        return beforeSale ? ((beforeSale - withSale) / beforeSale * 100) >= discount : true;
+    handleFilterForm = (id, value) => {
+        this.setState({ [id]: value });
     }
 
-    checkPriceFilter = (id, value) => {
-        const { pricemin, pricemax, discount } = {...this.state, [id]: value};
-        const shouldShow = products.filter(product => {
-            return this.isPriceInRange(Number(product.price), pricemin, pricemax) &&
-                   this.isDiscount(Number(product.price), Number(product.subPriceContent), discount);
-        });
-
-        this.setState({ 
-            [id]: value,
-            productsWorthShowing: shouldShow 
-        });
+    getProducts = (pricemin, pricemax, discount) => {
+        return products.filter(product => (
+            isPriceInRange(Number(product.price), Number(pricemin), Number(pricemax)) &&
+            isDiscount(Number(product.price), Number(product.subPriceContent),  Number(discount))
+        ));
     }
 
     render() {
@@ -50,9 +51,10 @@ class ProductPage extends React.Component {
                         <RangeFilter title='Цена'
                                      min={this.prices.min}
                                      max={this.prices.max}
-                                     getChangedValues={this.checkPriceFilter} />
+                                     getChangedValues={this.handleFilterForm} />
+
                         <DiscountFilter title='Скидка'
-                                        getChangedValues={this.checkPriceFilter} />
+                                        getChangedValues={this.handleFilterForm} />
                     </form>
                     <ProductList products={productsWorthShowing} />
                 </ContentColumn>;
