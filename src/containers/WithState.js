@@ -1,7 +1,8 @@
 import React from 'react';
+import LogRender from './LogRender';
 
 export default function withState(HoccedComponent){
-    return class extends React.Component {
+    return class extends LogRender {
         constructor(props) {
             super(props);
 
@@ -30,7 +31,8 @@ export default function withState(HoccedComponent){
                                     onKeyDown={this.handleKeyDown} 
                                     value={value}
                                     id={id}
-                                    min="0" />;
+                                    min="0"
+                                    {...this.props} />;
         }
   }
 }

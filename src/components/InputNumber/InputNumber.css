@@ -1,4 +1,4 @@
-.filter__input {
+.input {
   width: 100%;
   height: 100%;
   padding: 8px 16px;
@@ -9,9 +9,9 @@
   border-radius: 0;
 }
 
-.filter__input:active,
-.filter__input:hover,
-.filter__input:focus {
+.input:active,
+.input:hover,
+.input:focus {
   border: 1px solid #5d6877;
   outline: none;
 }
@@ -25,6 +25,6 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.filter__input_is-fail {
+.input_is-fail {
   border: 1px solid #e74b4b;
 }
