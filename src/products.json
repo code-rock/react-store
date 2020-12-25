@@ -6,7 +6,8 @@
     "imgProduct": "./photo/1.png",
     "price": "23",
     "subPriceContent": "25000",
-    "rating": 4
+    "rating": 4,
+    "category": "Clothes"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "imgProduct": "./photo/2.png",
     "price": "23000",
     "subPriceContent": "25000",
-    "rating": 3
+    "rating": 3,
+    "category": "Books"
   },
   {
     "id": 3,
@@ -24,7 +26,8 @@
     "imgProduct": "./photo/3.png",
     "price": "2300000",
     "subPriceContent": "",
-    "rating": 2
+    "rating": 2,
+    "category": "Books"
   },
   {
     "id": 4,
@@ -33,7 +36,8 @@
     "imgProduct": "./photo/4.png",
     "price": "230000",
     "subPriceContent": "",
-    "rating": 4
+    "rating": 4,
+    "category": "Books"
   },
   {
     "id": 5,
@@ -42,7 +46,8 @@
     "isInStock": true,
     "price": "230",
     "subPriceContent": "",
-    "rating": 0
+    "rating": 0,
+    "category": "Books"
   },
   {
     "id": 6,
@@ -51,6 +56,7 @@
     "imgProduct": "./photo/6.png",
     "price": "2300",
     "subPriceContent": "",
-    "rating": 5
+    "rating": 5,
+    "category": "Clothes"
   }
 ]

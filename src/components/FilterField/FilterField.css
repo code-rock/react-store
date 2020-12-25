@@ -1,0 +1,22 @@
+.filter-fieldset {
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  padding-block-start: 22px;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding-block-end: 24px;
+  min-inline-size: min-content;
+  border-width: 0;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+}
+
+.filter-fieldset__title {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: #323c48;
+}

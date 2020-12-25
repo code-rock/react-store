@@ -1,21 +1,9 @@
 import React from 'react';
 import LogRender from '../containers/LogRender';
+import { ProductPageContext } from '../containers/ProductPage';
 
 export default function withState(InputCompoment){
     return class extends LogRender {
-        constructor(props) {
-            super(props);
-
-            this.state = {
-                value: props.value
-            }
-        }
-
-        handleChange = ({target: {id, value}}) => {
-            this.setState({ value });
-            this.props.onChangeInputDo(id, value);
-        }
-
         // Запрещает ввод (-e)
         handleKeyDown = (event) => {
             if (event.keyCode === 69 || event.keyCode === 189) {
@@ -24,13 +12,18 @@ export default function withState(InputCompoment){
         }
 
         render() {
-            const { value } = this.state;
-
-            return <InputCompoment {...this.props}
-                                    onChange={this.handleChange}
-                                    onKeyDown={this.handleKeyDown} 
-                                    value={value}
-                                    min="0" />;
+            return  (
+                <ProductPageContext.Consumer>
+                    {(value) => {
+                        return <InputCompoment {...this.props}
+                                        onChange={value.onChange}
+                                        onKeyDown={this.handleKeyDown} 
+                                        value={value[this.props.id]}
+                                        min="0" />
+                    }}
+                    
+                </ProductPageContext.Consumer>
+            );
         }
   }
 }

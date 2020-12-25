@@ -5,3 +5,7 @@ export const isPriceInRange = (price, min, max) => {
 export const isDiscount = (withSale, beforeSale, discount) => {
     return beforeSale ? ((beforeSale - withSale) / beforeSale * 100) >= discount : true;
 }
+
+export const isInCategory = (productCategory, activeCategory) => {
+    return activeCategory.includes(productCategory) || !activeCategory.length;
+}
