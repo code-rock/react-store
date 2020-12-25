@@ -16,7 +16,7 @@ export const setUniquePropertyToUrl = (name, value, title = 'Product page') => {
 }
 
 // Добовляет параметр через запятую если еще не было соответствующего значения и удаляет если было
-// Возвращает текущие значения
+// Возвращает массив текущих значений
 export const getTogglePropertyFromUrl = (name, value, title = 'Product page') => {
     const url = new URL(window.location);
     let curr = getMultiplePropertyFromUrl(name);
@@ -41,6 +41,6 @@ export const deleteAllPropertyFromUrl = (title = 'Product page') => {
     const url = new URL(window.location);
     Array.from(url.searchParams.keys())
          .forEach(key => url.searchParams.delete(key));
-         
+
     window.history.pushState({}, title, url);
 }
