@@ -22,7 +22,7 @@ import {
 export const ProductPageContext = React.createContext({
     pricemin: 0, 
     pricemax: 50, 
-    discount: 5,
+    discount: 0,
     onChange: () => {}
 }); 
 
