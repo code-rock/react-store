@@ -19,7 +19,12 @@ import {
     deleteAllPropertyFromUrl
 } from '../utils/searchParamsUrl';
 
-export const ProductPageContext = React.createContext(); 
+export const ProductPageContext = React.createContext({
+    pricemin: 0, 
+    pricemax: 50, 
+    discount: 5,
+    onChange: () => {}
+}); 
 
 class ProductPage extends React.Component {
     constructor(props) {
