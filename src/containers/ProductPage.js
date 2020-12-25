@@ -89,14 +89,8 @@ class ProductPage extends React.Component {
         return <ContentColumn>
                     <form onSubmit={this.handleFormClear}>
                         <ProductPageContext.Provider value={{ pricemin, pricemax, discount, onChange: this.handleFilterForm }} >
-                            <FilterField title="Цена">
-                                <RangeFilter min={pricemin}
-                                            max={pricemax}
-                                            getChangedValues={this.handleFilterForm} />
-                            </FilterField>                       
-                            <FilterField title="Скидка">
-                                <DiscountFilter discount={discount} getChangedValues={this.handleFilterForm} />
-                            </FilterField>
+                            <FilterField title="Цена"><RangeFilter /></FilterField>                       
+                            <FilterField title="Скидка"><DiscountFilter /></FilterField>
                          </ProductPageContext.Provider>
                         <FilterField title="Категории">
                            {this.category.map(type => <CategoryButton onChange={this.handleCategoryChange} isActive={activeCategory.includes(type)} value={type} />)}
