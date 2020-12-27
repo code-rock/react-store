@@ -1,0 +1,29 @@
+.category_label {
+  padding: 8px 16px;
+  margin: 0 16px 0 0;
+  border-radius: 15px;
+  font-size: 14px;
+  line-height: 14px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #7e8fa4;
+  color: #7e8fa4;
+  outline: none;
+  font-family: "OpenSans";
+  text-transform: capitalize;
+}
+
+.category_checkbox:checked + .category_label {
+  background: #323c48;
+  color: #ffffff;
+  border: 1px solid#323C48;
+}
+
+.category_label:hover,
+.category_label:active {
+  cursor: pointer;
+}
+
+.category_checkbox {
+  display: none;
+}
