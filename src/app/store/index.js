@@ -20,7 +20,6 @@ const initialState = {
 
 const currProducts = getProducts(products, initialState.pricemin, initialState.pricemax, initialState.discount, initialState.activeCategory);
 initialState.productsWorthShowing = currProducts.length ? currProducts : products;
-console.log(initialState, 'initialState')
 const store = createStore(filterChangeReducer, initialState);
 
 export default store;
