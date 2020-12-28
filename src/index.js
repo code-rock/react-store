@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
+import store from './app/store';
 import ListTitle from './app/components/ListTitle/ListTitle';
-import ProductPageConnect from './app/containers/ProductPage';
+import ProductPageConnect from './app/containers/ProductPage/ProductPageConnect';
+import { Provider } from 'react-redux';
 
 function App() {
     return (    
@@ -20,6 +22,6 @@ function App() {
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-   <App />,
+   <Provider store={store}><App /></Provider>,
     rootElement
 );
