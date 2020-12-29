@@ -1,3 +1,5 @@
+import { initialState } from './index';
+
 export default function filterChangeReducer(state, action) {
     console.log(action.type,action);
     switch(action.type) {
@@ -30,6 +32,9 @@ export default function filterChangeReducer(state, action) {
                 ...state, 
                 productsWorthShowing: action.productsWorthShowing
             };
+        }
+        case 'CLEAR_FORM': {
+            return initialState;
         }
         default: {
             return state

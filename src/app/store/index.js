@@ -11,7 +11,7 @@ import {
 
 const prices = getRange(products);
 
-const initialState = {
+export const initialState = {
     pricemin: getUniquePropertyFromUrl('pricemin') || prices.min, 
     pricemax: getUniquePropertyFromUrl('pricemax') || prices.max,
     discount: getUniquePropertyFromUrl('discount') || 0,

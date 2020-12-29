@@ -21,14 +21,8 @@ class ProductPageWrapper extends React.Component {
     handleFormClear = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        
-        this.props.changePriceMin(this.prices.min);
-        this.props.changePriceMax(this.prices.max);
-        this.props.changeDiscount(0);
-        this.props.changeActiveCategory([]);
-        this.props.changeShowingProducts(products);
-
         deleteAllPropertyFromUrl();
+        this.props.clearForm();
     }
 
     handleCategoryChange = ({ target: { value }}) => {
@@ -58,6 +52,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        clearForm: () => dispatch({ type: 'CLEAR_FORM' }),
         changePriceMin: (pricemin) => dispatch({ type: 'PRICEMIN_CHANGE', pricemin }),
         changePriceMax: (pricemax) => dispatch({ type: 'PRICEMAX_CHANGE', pricemax }),
         changeDiscount: (discount) => dispatch({ type: 'DISCOUNT_CHANGE', discount }),
