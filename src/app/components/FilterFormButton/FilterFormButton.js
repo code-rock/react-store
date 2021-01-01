@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import './FilterFormButton.css';
 import LogRender from '../../containers/LogRender';
 
