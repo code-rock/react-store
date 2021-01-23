@@ -2,17 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import products from '../../../products';
 import getCategory from '../../utils/getCategory';
-import ProductPage from './ProductPage';
-import getRange from '../../utils/getRange';
-import {
-    deleteAllPropertyFromUrl
-} from '../../utils/searchParamsUrl';
+import ProductPageWrapper from './ProductPage';
+import { deleteAllPropertyFromUrl } from '../../utils/searchParamsUrl';
+import { clearForm } from '../../store/actions';
 
-class ProductPageWrapper extends React.Component {
+class ProductPage extends React.Component {
     constructor(props) {
         super(props);
-
-        this.prices = getRange(products);
         this.category = getCategory(products); 
     }
 
@@ -25,27 +21,20 @@ class ProductPageWrapper extends React.Component {
 
     render() {
         const { activeCategory } = this.props;
-        return <ProductPage onSubmit={this.handleFormClear}
-                            category={this.category}
-                            activeCategory={activeCategory} />
+        return <ProductPageWrapper onSubmit={this.handleFormClear}
+                                   category={this.category}
+                                   activeCategory={activeCategory} />
     }
 };
 
-const mapStateToProps = (state) => {
-    return {
-        pricemin: state.pricemin,
-        pricemax: state.pricemax,
-        discount: state.discount,
-        activeCategory: state.activeCategory,
-    }
-};
+const mapStateToProps = (state) => ({
+    activeCategory: state.activeCategory,
+});
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        clearForm: () => dispatch({ type: 'CLEAR_FORM' }),
-    }
-};
+const mapDispatchToProps = (dispatch) => ({
+    clearForm: dispatch(clearForm())
+});
 
-const ProductPageConnect = connect(mapStateToProps, mapDispatchToProps)(ProductPageWrapper)
+const ProductPageConnect = connect(mapStateToProps, mapDispatchToProps)(ProductPage)
 
 export default ProductPageConnect;

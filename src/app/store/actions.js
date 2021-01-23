@@ -1,6 +1,8 @@
 import * as types from './types';
 import { getTogglePropertyFromUrl } from '../utils/searchParamsUrl';
 
+export const clearForm = () => ({ type: types.CLEAR_FORM });
+
 export const changeActivePage = (activePage) => ({ 
     type: types.ACTIVE_PAGE_CHANGED,
     payload: Number(activePage)

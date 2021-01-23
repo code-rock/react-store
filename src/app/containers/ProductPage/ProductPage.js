@@ -8,30 +8,27 @@ import ContentColumn from '../../components/ContentColumn/ContentColumn';
 import DiscountFilter from '../../components/DiscountFilter/DiscountFilter';
 import PaginationConnect from '../../components/Pagination';
 
-class ProductPage extends PureComponent {
+class ProductPageWrapper extends PureComponent {
     render() {
         const { onSubmit, category, activeCategory } = this.props;
-        return  <React.Fragment>
-                    <ContentColumn>
-                        <form onSubmit={onSubmit}>
-                            <FilterField title="Цена"><RangeFilter /></FilterField>                       
-                            <FilterField title="Скидка"><DiscountFilter /></FilterField>
-                            <FilterField title="Категории">
-                                {category.map(type => (
-                                    <CategoryButtonConnect isActive={activeCategory.includes(type)}  
-                                                           value={type} />
-                                ))}
-                            </FilterField>     
-                            <FilterFormButton value="Сбросить фильтры" />       
-                        </form>
-                        <div>
-                            <ProductListConnect />
-                            <PaginationConnect />
-                        </div> 
-                    </ContentColumn>     
-                    
-                </React.Fragment>   
+        return  <ContentColumn>
+                    <form onSubmit={onSubmit}>
+                        <FilterField title="Цена"><RangeFilter /></FilterField>                       
+                        <FilterField title="Скидка"><DiscountFilter /></FilterField>
+                        <FilterField title="Категории">
+                            {category.map(type => (
+                                <CategoryButtonConnect isActive={activeCategory.includes(type)}  
+                                                       value={type} />
+                            ))}
+                        </FilterField>     
+                        <FilterFormButton value="Сбросить фильтры" />       
+                    </form>
+                    <div>
+                        <ProductListConnect />
+                        <PaginationConnect />
+                    </div> 
+                </ContentColumn> 
     }
 };
 
-export default ProductPage;
+export default ProductPageWrapper;
