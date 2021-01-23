@@ -4,7 +4,6 @@ import products from '../../products';
 import { filterChanged } from './selectors';
 
 export default function filterChangeReducer(state, action) {
-    console.log(action.type,action);
     switch(action.type) {
         case types.PRICEMIN_CHANGE: {
             return { 

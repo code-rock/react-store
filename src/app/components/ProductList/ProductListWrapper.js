@@ -9,7 +9,6 @@ class ProductListWrapper extends LogRender {
     render() {
       const { products, activePage } = this.props;
       const currPageProducts = products[Number(activePage) - 1];
-      console.log(products, currPageProducts);
       return Array.isArray(currPageProducts) && !!currPageProducts.length 
             ? <ul className='list'>
                 {currPageProducts.map((el) =>  ( 

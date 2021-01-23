@@ -12,7 +12,6 @@ export const getMultiplePropertyFromUrl = (name) => {
 export const setUniquePropertyToUrl = (name, value, title = 'Product page') => {
     const url = new URL(window.location);
     url.searchParams.set(name, value);
-    console.log(url, 'url');
     window.history.pushState({}, title, url);
 }
 

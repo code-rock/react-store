@@ -14,7 +14,7 @@ const mapDispatchToProps = (dispatch) => {
         changeActivePage: (num) => dispatch(changeActivePage(num)),
     }
 };
-console.log('2')
+
 const PaginationConnect = connect(mapStateToProps, mapDispatchToProps)(PaginationWrapper)
 
 export default PaginationConnect;
