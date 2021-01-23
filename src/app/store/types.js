@@ -1,0 +1,19 @@
+const PRICEMIN_CHANGE = 'my-app/product-page/PRICEMIN_CHANGE';
+const PRICEMAX_CHANGE = 'my-app/product-page/PRICEMAX_CHANGE';
+const DISCOUNT_CHANGE = 'my-app/product-page/DISCOUNT_CHANGE';
+const ACTIVECATEGORY_CHANGE = 'my-app/product-page/ACTIVECATEGORY_CHANGE';
+const SHOWING_PRODUCTS_CHANGE = 'my-app/product-page/SHOWING_PRODUCTS_CHANGE';
+const CLEAR_FORM = 'my-app/product-page/CLEAR_FORM';
+const ACTIVE_PAGE_CHANGED = 'my-app/product-page/ACTIVE_PAGE_CHANGED';
+const FILTER_CHANGED = 'my-app/product-page/FILTER_CHANGED';
+
+export { 
+    PRICEMIN_CHANGE,
+    PRICEMAX_CHANGE,
+    DISCOUNT_CHANGE,
+    ACTIVECATEGORY_CHANGE,
+    SHOWING_PRODUCTS_CHANGE,
+    CLEAR_FORM,
+    ACTIVE_PAGE_CHANGED,
+    FILTER_CHANGED
+ };

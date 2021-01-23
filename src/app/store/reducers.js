@@ -1,43 +1,51 @@
 import { initialState } from './index';
+import * as types from './types';
+import products from '../../products';
+import { filterChanged } from './selectors';
 
 export default function filterChangeReducer(state, action) {
     console.log(action.type,action);
     switch(action.type) {
-        case 'PRICEMIN_CHANGE': {
+        case types.PRICEMIN_CHANGE: {
             return { 
                 ...state, 
-                pricemin: action.pricemin
+                pricemin: action.pricemin,
+                ...filterChanged(products, action.pricemin, state.pricemax, state.discount, state.activeCategory)
             };
         }
-        case 'PRICEMAX_CHANGE': {
+        case types.PRICEMAX_CHANGE: {
             return { 
                 ...state, 
-                pricemax: action.pricemax
+                pricemax: action.pricemax,
+                ...filterChanged(products, state.pricemin, action.pricemax, state.discount, state.activeCategory)
             };
         }
-        case 'DISCOUNT_CHANGE': {
+        case types.DISCOUNT_CHANGE: {
             return { 
                 ...state, 
-                discount: action.discount
+                discount: action.discount,
+                ...filterChanged(products, state.pricemin, state.pricemax, action.discount, state.activeCategory)
             };
         }
-        case 'ACTIVECATEGORY_CHANGE': {
+        case types.ACTIVECATEGORY_CHANGE: {
             return { 
                 ...state, 
-                activeCategory: action.activeCategory
+                activeCategory: action.activeCategory,
+                ...filterChanged(products, state.pricemin, state.pricemax, state.discount, action.activeCategory)
             };
         }
-        case 'SHOWING_PRODUCTS_CHANGE': {
-            return { 
-                ...state, 
-                productsWorthShowing: action.productsWorthShowing
-            };
+        case types.ACTIVE_PAGE_CHANGED: {
+            return { ...state, activePage: action.payload }
         }
-        case 'CLEAR_FORM': {
+        case types.FILTER_CHANGED: {
+            return { ...state, ...action.payload }
+        }
+        case types.CLEAR_FORM: {
             return initialState;
         }
         default: {
             return state
         }
     }
+
 }

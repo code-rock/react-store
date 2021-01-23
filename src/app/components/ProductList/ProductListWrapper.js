@@ -2,14 +2,17 @@ import React from 'react';
 import ProductItem from 'csssr-school-product-card';
 import RatingComponent from '../RatingComponent/RatingComponent';
 import ProductPrice from '../ProductPriсe/ProductPriсe';
-import './ProductList.css';
+import './ProductListWrapper.css';
 import LogRender from '../../containers/LogRender';
 
-class ProductList extends LogRender {
+class ProductListWrapper extends LogRender {
     render() {
-        return Array.isArray(this.props.products) && !!this.props.products.length 
+      const { products, activePage } = this.props;
+      const currPageProducts = products[Number(activePage) - 1];
+      console.log(products, currPageProducts);
+      return Array.isArray(currPageProducts) && !!currPageProducts.length 
             ? <ul className='list'>
-                {this.props.products.map((el) =>  ( 
+                {currPageProducts.map((el) =>  ( 
                   <ProductItem
                       isInStock={el.isInStock}
                       img={el.imgProduct}
@@ -27,4 +30,4 @@ class ProductList extends LogRender {
       }
 }
 
-export default ProductList;
+export default ProductListWrapper;

@@ -4,7 +4,8 @@
   justify-content: center;
 }
 
-.pagination > a {
+.pagination > a,
+.pagination > span {
   display: inline-block;
 
   min-width: 34px;
@@ -24,17 +25,12 @@
   text-decoration: none;
 }
 
-.pagination > a:first-of-type,
-.pagination > a:last-of-type {
+.pagination > .big-page {
   width: 88px;
 }
 
-.pagination > a:first-of-type {
-  margin: 0 16px 0 0;
-}
-
-.pagination > a:last-of-type {
-  margin: 0 0 0 16px;
+.pagination > .big-page {
+  margin: 0 16px;
 }
 
 .pagination a:hover {
@@ -43,12 +39,9 @@
   border: none;
 }
 
-.pagination a:active {
+.pagination a:active,
+.pagination .link_active {
   background: #5695ed;
   color: white;
   border: none;
 }
-
-/* .pagination > .active-page {
-    display: inline-block;
-} */
