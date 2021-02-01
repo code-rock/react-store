@@ -15,7 +15,7 @@ export default class PaginationWrapper extends React.PureComponent {
         return pageLinkEls;
     }
     
-    createPagination = (active, max) => {
+    createPaginationCenterPart = (active, max) => {
         let startPage = 1;
         let finishPage = 1;
 
@@ -62,18 +62,18 @@ export default class PaginationWrapper extends React.PureComponent {
         return <div className="pagination">
                     {activePage !== 1 ? this.renderLink((activePage - 1), activePage, 'Назад'): ''}
                     {!this.isStart(activePage) && !this.isShort(maxPage) ? 
-                        <React.Fragment>
+                        <>
                              {this.renderLink(1, activePage)}
                             <span>...</span>
-                        </React.Fragment> : ''}
+                        </> : ''}
 
-                    {this.createPagination(activePage, maxPage)}
+                    {this.createPaginationCenterPart(activePage, maxPage)}
 
                     {!this.isEnd(activePage) && !this.isShort(maxPage) ? 
-                        <React.Fragment>
+                        <>
                             <span>...</span>
                             {this.renderLink(maxPage, activePage)}
-                        </React.Fragment> : ''}
+                        </> : ''}
                     {activePage !== maxPage ? this.renderLink(activePage + 1, activePage, 'Вперед'): ''}
                </div>
     }
