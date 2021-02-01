@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './InputNumber.css';
-import { setUniquePropertyToUrl } from '../../utils/searchParamsUrl';
-import { InputNumberWithState } from './InputNumber';
+import { setUniquePropertyToUrl } from '../utils/searchParamsUrl';
+import { InputNumberWithState } from '../components/InputNumber/InputNumber';
+import { changeNumberInputValue } from '../store/actions';
 
 export class InputNumberWrapper extends React.PureComponent {
     handleChange = ({ target: { id, value }}) => {
-        this.props[`${id}Change`](value);
-        setUniquePropertyToUrl(this.props.id, value);
+        this.props.changedValue(id, value);
+        setUniquePropertyToUrl(id, value);
     }
 
     render() {
@@ -16,6 +16,7 @@ export class InputNumberWrapper extends React.PureComponent {
                                      onChange={this.handleChange} />
     }
 }
+
 const mapStateToProps = (state) => {
    return {
         pricemin: state.pricemin,
@@ -24,13 +25,9 @@ const mapStateToProps = (state) => {
     }
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        priceminChange: (pricemin) => dispatch({ type: 'PRICEMIN_CHANGE', pricemin }),
-        pricemaxChange: (pricemax) => dispatch({ type: 'PRICEMAX_CHANGE', pricemax }),
-        discountChange: (discount) => dispatch({ type: 'DISCOUNT_CHANGE', discount }),
-    }
-};
+const mapDispatchToProps = (dispatch) => ({
+    changedValue: (id, value) => dispatch(changeNumberInputValue(id, value))
+});
 
 const InputNumberConnect = connect(mapStateToProps, mapDispatchToProps)(InputNumberWrapper)
 

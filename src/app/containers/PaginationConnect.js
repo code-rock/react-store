@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
-import { changeActivePage } from '../../store/actions';
-import PaginationWrapper from './Pagination';
+import { changeActivePage } from '../store/actions';
+import PaginationWrapper from '../components/Pagination/Pagination';
+import productsChunks from '../store/selectors';
 
 const mapStateToProps = (state) => {
    return {
         activePage: state.activePage,
-        maxPage: state.maxPage,
+        maxPage: productsChunks(state).length,
     }
 };
 

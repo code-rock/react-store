@@ -12,3 +12,8 @@ export const changeActiveCategory = ({ target: { value }}) => ({
     type: types.ACTIVECATEGORY_CHANGE, 
     activeCategory: getTogglePropertyFromUrl('category', value) 
 });
+
+export const changeNumberInputValue = (id, value) => ({ 
+    type: types[`${id.toUpperCase()}_CHANGE`], 
+    [id]: value 
+});

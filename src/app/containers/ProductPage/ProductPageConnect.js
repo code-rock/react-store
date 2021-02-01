@@ -32,7 +32,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    clearForm: dispatch(clearForm())
+    clearForm: () => dispatch(clearForm())
 });
 
 const ProductPageConnect = connect(mapStateToProps, mapDispatchToProps)(ProductPage)

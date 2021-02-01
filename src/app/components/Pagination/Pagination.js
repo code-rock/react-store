@@ -8,19 +8,36 @@ export default class PaginationWrapper extends React.PureComponent {
     isEnd = (active, max) => Number(active) >= Number(max) - 3;
     
     createLinks(start = 1, end = 1, active = 1) {
-        let pages = [];
+        let pageLinkEls = [];
         for (let i = start; i <= end; i++) {
-            pages.push(this.renderLink(i, active));
+            pageLinkEls.push(this.renderLink(i, active));
         }
-        return pages;
+        return pageLinkEls;
     }
     
     createPagination = (active, max) => {
-        return this.isShort(max)       ? this.createLinks(1, max, active) 
-            :( this.isStart(active)    ? this.createLinks(1, active + 2, active) 
-            :( this.isEnd(active, max) ? this.createLinks(active - 2, max, active)
-            :                            this.createLinks(active - 2, active + 2, active)
-        ))   
+        let startPage = 1;
+        let finishPage = 1;
+
+        switch(true) {
+            case this.isShort(max):
+                startPage = 1;
+                finishPage = max;
+            break;
+            case this.isStart(active):
+                startPage = 1;
+                finishPage = active + 2;
+            break;
+            case this.isEnd(active, max):
+                startPage = active - 2;
+                finishPage = max;
+            break;
+            default:
+                startPage = active - 2;
+                finishPage = active - 2;
+        }
+
+        return this.createLinks(startPage, finishPage, active); 
     }
 
     onLinkClick = (e) => {

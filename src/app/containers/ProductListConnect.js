@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import ProductListWrapper from './ProductListWrapper';
+import ProductListWrapper from '../components/ProductList/ProductListWrapper';
+import productsChunks from '../store/selectors';
 
 const mapStateToProps = (state) => ({
-    products: state.sortedProducts,
+    products: productsChunks(state),
     activePage: state.activePage
 });
  

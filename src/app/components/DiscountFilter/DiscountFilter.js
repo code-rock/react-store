@@ -1,7 +1,7 @@
 import React from 'react';
 import './DiscountFilter.css';
 import LogRender from '../../containers/LogRender';
-import InputNumberConnect from '../InputNumber/InputNumberConnect';
+import InputNumberConnect from '../../containers/InputNumberConnect';
 
 class DiscountFilter extends LogRender {
     render() {

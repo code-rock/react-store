@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import CategoryButton from './CategoryButton';
-import { changeActiveCategory } from '../../store/actions';
+import CategoryButton from '../components/CategoryButton/CategoryButton';
+import { changeActiveCategory } from '../store/actions';
 
 const mapDispatchToProps = (dispatch) => ({
     onChange: (e) => dispatch(changeActiveCategory(e)),

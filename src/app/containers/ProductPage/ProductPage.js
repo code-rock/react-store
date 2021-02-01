@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import FilterFormButton from '../../components/FilterFormButton/FilterFormButton';
-import CategoryButtonConnect from '../../components/CategoryButton';
+import CategoryButtonConnect from '../CategoryButtonConnect';
 import FilterField from '../../components/FilterField/FilterField';
-import ProductListConnect from '../../components/ProductList';
+import ProductListConnect from '../ProductListConnect';
 import RangeFilter from '../../components/RangeFilter/RangeFilter';
 import ContentColumn from '../../components/ContentColumn/ContentColumn';
 import DiscountFilter from '../../components/DiscountFilter/DiscountFilter';
-import PaginationConnect from '../../components/Pagination';
+import PaginationConnect from '../PaginationConnect';
 
 class ProductPageWrapper extends PureComponent {
     render() {
