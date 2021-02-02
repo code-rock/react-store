@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './Pagination.css';
 import { setUniquePropertyToUrl } from '../../utils/searchParamsUrl';
 
-export default class PaginationWrapper extends React.PureComponent {
+export default class PaginationWrapper extends PureComponent {
     isShort = max => Number(max) <= 5;
     isStart = active => Number(active) <= 3;
     isEnd = (active, max) => Number(active) >= Number(max) - 3;

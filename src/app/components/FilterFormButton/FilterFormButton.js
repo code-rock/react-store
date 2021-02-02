@@ -1,8 +1,7 @@
-import React from 'react';
-import './FilterFormButton.css';
-import LogRender from '../../containers/LogRender';
+import React, { PureComponent } from 'react';
+import './FilterFormButton.css'; 
 
-class FilterFormButton extends LogRender {
+class FilterFormButton extends PureComponent {
     render() {
         const { value, onSubmit } = this.props;
 

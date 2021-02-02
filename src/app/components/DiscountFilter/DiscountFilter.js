@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './DiscountFilter.css';
-import LogRender from '../../containers/LogRender';
 import InputNumberConnect from '../../containers/InputNumberConnect';
 
-class DiscountFilter extends LogRender {
+class DiscountFilter extends PureComponent {
     render() {
         return <div className="filter-sale">
                     <label className="filter-sale__label" htmlFor="discount">от</label>

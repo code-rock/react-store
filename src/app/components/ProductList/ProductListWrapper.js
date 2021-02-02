@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import ProductItem from 'csssr-school-product-card';
 import RatingComponent from '../RatingComponent/RatingComponent';
 import ProductPrice from '../ProductPriсe/ProductPriсe';
 import './ProductListWrapper.css';
-import LogRender from '../../containers/LogRender';
 
-class ProductListWrapper extends LogRender {
+class ProductListWrapper extends PureComponent {
     render() {
       const { products, activePage } = this.props;
       const currPageProducts = products[Number(activePage) - 1];

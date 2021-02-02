@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './CategoryButton.css';
-import LogRender from '../../containers/LogRender';
 
-class CategoryButton extends LogRender{
+class CategoryButton extends PureComponent {
     render() {
         const { value, onChange, isActive } = this.props;
      

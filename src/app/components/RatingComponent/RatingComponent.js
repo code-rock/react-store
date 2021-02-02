@@ -1,11 +1,9 @@
-import React from 'react';
-
+import React, { PureComponent } from 'react';
 import EmptyStar from '../../icons/EmptyStar';
 import FilledStar from '../../icons/FilledStar';
-import LogRender from '../../containers/LogRender';
 import './RatingComponent.css';
 
-class RatingComponent extends LogRender {
+class RatingComponent extends PureComponent {
     render() {
         const { isFilled } = this.props;
 
