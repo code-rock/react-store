@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import './Pagination.css';
-import { setUniquePropertyToUrl } from '../../utils/searchParamsUrl';
 
 export default class PaginationWrapper extends PureComponent {
     isShort = max => Number(max) <= 5;
@@ -43,7 +42,6 @@ export default class PaginationWrapper extends PureComponent {
     onLinkClick = (e) => {
         e.preventDefault();
         const page = e.target.dataset.page;
-        setUniquePropertyToUrl('pageNum', page,  `Page ${page}`);
         this.props.changeActivePage(page);
     }
 
