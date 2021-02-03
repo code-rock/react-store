@@ -10,7 +10,7 @@ export default class PaginationWrapper extends PureComponent {
     createLinks(start = 1, end = 1, active = 1) {
         let pageLinkEls = [];
         for (let i = start; i <= end; i++) {
-            pageLinkEls.push(this.renderLink(i, active));
+            pageLinkEls.push(this.renderLinkWithPage(i, active));
         }
         return pageLinkEls;
     }
@@ -47,11 +47,22 @@ export default class PaginationWrapper extends PureComponent {
         this.props.changeActivePage(page);
     }
 
-    renderLink = (page = 1, active = 1, text) => {
+    renderLinkWithPage = (page = 1, active = 1) => {
         return <a onClick={this.onLinkClick}
-                  className={`${active === page ? 'link_active' : ''} ${text ? 'big-page': ''}`}
+                  className={`${active === page ? 'link_active' : ''}`}
                   href={`/?pageNum=${page}`} 
                   alt={`Page ${page}`}
+                  data-page={page}>
+                      {page}
+               </a>
+    }
+
+    renderLinkWithText = (page = 1, text, isDisabled = false) => {
+        return <a onClick={this.onLinkClick}
+                  className={`big-page ${isDisabled ? 'disabled': ''}`}
+                  alt={`${text}`}
+                  disabled={isDisabled}
+                  href={`/?pageNum=${page}`} 
                   data-page={page}>
                       {text || page}
                </a>
@@ -60,10 +71,10 @@ export default class PaginationWrapper extends PureComponent {
     render() {
         const { maxPage, activePage } = this.props;
         return <div className="pagination">
-                    {activePage !== 1 ? this.renderLink((activePage - 1), activePage, 'Назад'): ''}
+                    {this.renderLinkWithText((activePage - 1), 'Назад', activePage === 1)}
                     {!this.isStart(activePage) && !this.isShort(maxPage) ? 
                         <>
-                             {this.renderLink(1, activePage)}
+                             {this.renderLinkWithPage(1, activePage)}
                             <span>...</span>
                         </> : ''}
 
@@ -72,9 +83,9 @@ export default class PaginationWrapper extends PureComponent {
                     {!this.isEnd(activePage) && !this.isShort(maxPage) ? 
                         <>
                             <span>...</span>
-                            {this.renderLink(maxPage, activePage)}
+                            {this.renderLinkWithPage(maxPage, activePage)}
                         </> : ''}
-                    {activePage !== maxPage ? this.renderLink(activePage + 1, activePage, 'Вперед'): ''}
+                    {this.renderLinkWithText(activePage + 1, 'Вперед', maxPage === activePage)}
                </div>
     }
 }
