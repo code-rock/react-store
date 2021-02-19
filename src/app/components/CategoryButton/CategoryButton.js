@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import './CategoryButton.css';
+import {getTogglePropertyFromUrl} from '../../utils/searchParamsUrl';
 
+import { BrowserRouter, Link, Route, NavLink } from 'react-router-dom';
 class CategoryButton extends PureComponent {
     render() {
         const { value, onChange, isActive } = this.props;
      
-        return  <>
+        return  <Link to={getTogglePropertyFromUrl('category', value)}>
                     <input type="checkbox"
                         value={value}
                         id={value}
@@ -15,7 +17,7 @@ class CategoryButton extends PureComponent {
                         className='category_checkbox' />
                     <label className='category_label' 
                            htmlFor={value}>{value}</label>
-                </>        
+                </Link>        
     }
 }
 

@@ -2,18 +2,19 @@ import { createSelector } from 'reselect';
 import getProducts from '../utils/getProducts';
 import spliteByNumber from '../utils/spliteByNumber';
 
-const getFilteraValue = (state) => ({
-    pricemin: state.pricemin, 
-    pricemax: state.pricemax, 
-    discount: state.discount, 
-    activeCategory: state.activeCategory,
-    products: state.products,
-    numProductsPerPage: state.numProductsPerPage,
+const getFilterValue = ({ filter }) => ({
+    pricemin: filter.pricemin, 
+    pricemax: filter.pricemax, 
+    discount: filter.discount, 
+    activeCategory: filter.activeCategory,
+    products: filter.products,
+    numProductsPerPage: filter.numProductsPerPage,
 });
 
 const productsChunks = createSelector(
-    getFilteraValue,
+    getFilterValue,
     ({ products, pricemin, pricemax, discount, activeCategory, numProductsPerPage }) => {
+        console.log('rrrrrrrrr',products, pricemin, pricemax, discount, activeCategory, numProductsPerPage)
         const afterFiltered = getProducts(products, pricemin, pricemax, discount, activeCategory);
         const afterPagination = spliteByNumber(afterFiltered, numProductsPerPage);
  

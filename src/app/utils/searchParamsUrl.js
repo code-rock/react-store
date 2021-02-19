@@ -9,16 +9,17 @@ export const getMultiplePropertyFromUrl = (name) => {
     return all && all.length ? all.split(',') : [];
 }
 
-export const setUniquePropertyToUrl = (name, value, title = 'Product page') => {
+export const setUniquePropertyToUrl = (name, value) => {
     const url = new URL(window.location);
     url.searchParams.set(name, value);
-    window.history.pushState({}, title, url);
+    return url.search;
 }
 
 // Добовляет параметр через запятую если еще не было соответствующего значения и удаляет если было
 // Возвращает массив текущих значений
-export const getTogglePropertyFromUrl = (name, value, title = 'Product page') => {
+export const getTogglePropertyFromUrl = (name, value) => {
     const url = new URL(window.location);
+    console.log(url)
     let curr = getMultiplePropertyFromUrl(name);
 
     if (curr.includes(value)) {
@@ -32,9 +33,8 @@ export const getTogglePropertyFromUrl = (name, value, title = 'Product page') =>
     } else {
         url.searchParams.delete(name);
     }
-
-    window.history.pushState({}, title, url);
-    return curr;
+    console.log(url.search)
+    return url.search;
 }
 
 export const deleteAllPropertyFromUrl = (title = 'Product page') => {

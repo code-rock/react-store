@@ -16,10 +16,10 @@ class ProductPageWrapper extends PureComponent {
                         <FilterField title="Цена"><RangeFilter /></FilterField>                       
                         <FilterField title="Скидка"><DiscountFilter /></FilterField>
                         <FilterField title="Категории">
-                            {category.map(type => (
-                                <CategoryButtonConnect isActive={activeCategory.includes(type)}  
-                                                       value={type} />
-                            ))}
+                            {/* {category.map(type => ( 
+                            //     <CategoryButtonConnect isActive={activeCategory.includes(type)}  
+                            //                            value={type} />
+                            // ))}*/}
                         </FilterField>     
                         <FilterFormButton value="Сбросить фильтры" />       
                     </form>

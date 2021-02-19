@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    changeActivePage: (num) => dispatch(changeActivePage(num)),
+    //changeActivePage: (num) => dispatch(changeActivePage(num)),
 });
 
 const PaginationConnect = connect(mapStateToProps, mapDispatchToProps)(PaginationWrapper)
