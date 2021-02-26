@@ -12,23 +12,15 @@ class ProductPage extends React.Component {
         this.category = getCategory(products); 
     }
 
-    handleFormClear = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        deleteAllPropertyFromUrl();
-        this.props.clearForm();
-    }
-
     render() {
         const { activeCategory } = this.props;
-        return <ProductPageWrapper onSubmit={this.handleFormClear}
-                                   category={this.category}
+        return <ProductPageWrapper category={this.category}
                                    activeCategory={activeCategory} />
     }
 };
 
-const mapStateToProps = (state) => ({
-    activeCategory: state.activeCategory,
+const mapStateToProps = ({ filter }) => ({
+    activeCategory: filter.activeCategory,
 });
 
 const mapDispatchToProps = (dispatch) => ({

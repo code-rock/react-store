@@ -14,10 +14,8 @@ const getFilterValue = ({ filter }) => ({
 const productsChunks = createSelector(
     getFilterValue,
     ({ products, pricemin, pricemax, discount, activeCategory, numProductsPerPage }) => {
-        console.log('rrrrrrrrr',products, pricemin, pricemax, discount, activeCategory, numProductsPerPage)
         const afterFiltered = getProducts(products, pricemin, pricemax, discount, activeCategory);
         const afterPagination = spliteByNumber(afterFiltered, numProductsPerPage);
- 
         return afterPagination;
     },
 );
