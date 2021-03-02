@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import products from '../../../products';
 import getCategory from '../../utils/getCategory';
 import ProductPageWrapper from './ProductPage';
-import { deleteAllPropertyFromUrl } from '../../utils/searchParamsUrl';
 import { clearForm } from '../../store/actions';
+import getActiveCategoryFromUrl from '../../store/selectors/activeCategory';
 
 class ProductPage extends React.Component {
     constructor(props) {
@@ -13,15 +13,23 @@ class ProductPage extends React.Component {
     }
 
     render() {
-        const { activeCategory } = this.props;
-        return <ProductPageWrapper category={this.category}
-                                   activeCategory={activeCategory} />
+        const { search, pathname, hash } = this.props;
+        console.log(search, pathname, 'search');
+        return <ProductPageWrapper search={search}
+                                   pathname={pathname}
+                                   hash={hash}
+                                   category={this.category}
+                                   activeCategory={getActiveCategoryFromUrl(search, 'category')} />
     }
 };
 
-const mapStateToProps = ({ filter }) => ({
-    activeCategory: filter.activeCategory,
-});
+const mapStateToProps = (state) => {
+    console.log(state,' state33333333333333');
+    return ({
+    pathname: state.router.location.pathname,
+    search: state.router.location.search,
+    hash: state.router.location.hash,     
+})} ;
 
 const mapDispatchToProps = (dispatch) => ({
     clearForm: () => dispatch(clearForm())

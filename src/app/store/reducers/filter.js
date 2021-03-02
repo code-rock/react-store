@@ -2,7 +2,6 @@ import { initialState } from '../index';
 import * as types from '../types';
 
 export default function filterReducer(state = initialState, action) {
-    console.log(state, action, 'ddddddddd')
     switch(action.type) {
         case types.PRICEMIN_CHANGE: {
             return { 

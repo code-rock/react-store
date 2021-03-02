@@ -8,9 +8,12 @@ import ContentColumn from '../../components/ContentColumn/ContentColumn';
 import DiscountFilter from '../../components/DiscountFilter/DiscountFilter';
 import PaginationConnect from '../PaginationConnect';
 
+import UsePageNumber from '../../hocs/UsePageNumber';
+
 class ProductPageWrapper extends PureComponent {
     render() {
-        const { onSubmit, category, activeCategory } = this.props;
+        const { onSubmit, category, activeCategory, search, pathname, hash} = this.props;
+        console.log(activeCategory, 'activeCategory 33');
         return  <ContentColumn>
                     <form onSubmit={onSubmit}>
                         <FilterField title="Цена"><RangeFilter /></FilterField>                       
@@ -18,7 +21,8 @@ class ProductPageWrapper extends PureComponent {
                         <FilterField title="Категории">
                             {category.map(type => ( 
                                 <CategoryButtonConnect isActive={activeCategory.includes(type)}  
-                                                       value={type} />
+                                                       value={type}
+                                                       url={'/'} />
                             ))}
                         </FilterField>     
                         <FilterFormButton value="Сбросить фильтры" />       

@@ -3,8 +3,14 @@ export const getUniquePropertyFromUrl = (name) => {
     return searchParams.get(name);
 }
 
-export const getMultiplePropertyFromUrl = (name) => {
-    const searchParams = new URLSearchParams(window.location.search);
+export const getMultiplePropertyFromSearch = (search, name) => {
+    const searchParams = new URLSearchParams(search);
+    const all = searchParams.get(name);
+    return all && all.length ? all.split(',') : [];
+}
+
+export const getMultiplePropertyFromUrl = (name, location = false) => {
+    const searchParams = new URLSearchParams(location.search || window.location.search);
     const all = searchParams.get(name);
     return all && all.length ? all.split(',') : [];
 }
@@ -19,7 +25,6 @@ export const setUniquePropertyToUrl = (name, value) => {
 // Возвращает массив текущих значений
 export const getTogglePropertyFromUrl = (name, value) => {
     const url = new URL(window.location);
-    console.log(url)
     let curr = getMultiplePropertyFromUrl(name);
 
     if (curr.includes(value)) {
@@ -33,7 +38,7 @@ export const getTogglePropertyFromUrl = (name, value) => {
     } else {
         url.searchParams.delete(name);
     }
-    console.log(url.search)
+    console.log(curr, 'url.search')
     return url.search;
 }
 

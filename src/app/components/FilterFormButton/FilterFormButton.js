@@ -4,9 +4,8 @@ import './FilterFormButton.css';
 
 class FilterFormButton extends PureComponent {
     render() {
-        const { value } = this.props;
-        return  <Link to="/">    
-                    <input type='submit' value={value} className='filter-form-button' />
+        return  <Link to="/" className='filter-form-button'>    
+                    {this.props.value}
                 </Link>
     }
 }

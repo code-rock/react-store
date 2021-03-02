@@ -9,6 +9,8 @@ import ProductPageConnect from './app/containers/ProductPage/ProductPageConnect'
 import { Provider } from 'react-redux';
 import BackButton from './app/containers/ProductInfoPage/ProductInfoPage';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { ConnectedRouter } from 'connected-react-router';
+import { history } from './app/store/configureStore';
 
 function App() {
     return (    
@@ -27,6 +29,10 @@ function App() {
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-   <Provider store={store}><App /></Provider>,
+   <Provider store={store}>
+       <ConnectedRouter history={history}>
+           <App />
+        </ConnectedRouter>
+    </Provider>,
     rootElement
 );

@@ -1,4 +1,7 @@
 .filter-form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 9px;
   background: white;
@@ -8,10 +11,10 @@
   line-height: 14px;
   color: #323c48;
   outline: none;
+  text-decoration: none;
 }
 
-.filter-form-button:hover,
-.filter-form-button:active {
+.filter-form-button:hover {
   background: #323c48;
   cursor: pointer;
   color: white;
