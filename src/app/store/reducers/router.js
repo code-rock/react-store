@@ -1,20 +1,18 @@
-import { CALL_HISTORY_METHOD } from 'connected-react-router';
+// import { LOCATION_CHANGE } from 'connected-react-router';
 
-const initialRoute = {
-    pathname: '',
-    search: '',
-    hash: '',
-  }
-  
-export default function routerReducer(state = initialRoute, action) {
-    console.log(state, action, 'state, action')
-    switch(action.type) {
-      case CALL_HISTORY_METHOD: {
-      console.log(state, action, 'state, action')
-      return state;
-      }
-      default: {
-          return state
-      }
-   }
-} 
+// const initialRoute = {
+//     //location: '/'
+// }
+
+// export default function routerReducer(state = initialRoute, action = initialRoute) {
+//     //console.log(state, action, 'state, action !!!!!!!!!!')
+//     switch(action.type) {
+//       case LOCATION_CHANGE: {
+//         console.log(state,  action, 'LOCATION_CHANGE')
+//         return { ...state, ...action.payload.location.state };
+//       }
+//       default: {
+//           return state
+//       }
+//    }
+// } 

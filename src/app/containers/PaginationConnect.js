@@ -6,7 +6,7 @@ import UsePageNumber from '../hocs/UsePageNumber';
 
 const mapStateToProps = (state) => ({
     activePage: state.activePage,
-    maxPage: productsChunks(state).length,
+    max: productsChunks(state).length,
 });
 
 const mapDispatchToProps = (dispatch) => ({

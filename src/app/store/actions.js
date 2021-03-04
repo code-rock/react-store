@@ -2,8 +2,6 @@ import * as types from './types';
 import { getTogglePropertyFromUrl } from '../utils/searchParamsUrl';
 import { setUniquePropertyToUrl } from '../utils/searchParamsUrl';
 
-export const clearForm = () => ({ type: types.CLEAR_FORM });
-
 // export const changeActivePage = (activePage) => {
 //     // setUniquePropertyToUrl('pageNum', activePage,  `Page ${activePage}`);
 //     return { 

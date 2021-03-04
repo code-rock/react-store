@@ -5,7 +5,8 @@ import filterReducer from './filter';
 
 const createRootReducer = (history) => combineReducers({
     filter: filterReducer,
-    router: connectRouter(history)
+    router: connectRouter(history),
+    //url: routerReducer
 })
-console.log(createRootReducer)
+//console.log(createRootReducer)
 export default createRootReducer;

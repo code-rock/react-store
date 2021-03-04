@@ -1,25 +1,16 @@
 import { initialState } from '../index';
-import * as types from '../types';
+import { LOCATION_CHANGE } from 'connected-react-router';
+//import * as types from '../types';
 
 export default function filterReducer(state = initialState, action) {
     switch(action.type) {
-        case types.PRICEMIN_CHANGE: {
-            return { 
-                ...state, 
-                pricemin: action.pricemin
-            };
-        }
-        case types.PRICEMAX_CHANGE: {
-            return { 
-                ...state, 
-                pricemax: action.pricemax
-            };
-        }
-        case types.DISCOUNT_CHANGE: {
-            return { 
-                ...state, 
-                discount: action.discount
-            };
+        case LOCATION_CHANGE: {
+            if (action.payload.location.state) {
+                return { 
+                    ...state, 
+                    ...action.payload.location.state
+                };
+            }
         }
         default: {
             return state

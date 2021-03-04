@@ -1,41 +1,25 @@
 import React, { PureComponent } from 'react';
-import ProductItem from 'csssr-school-product-card';
-import RatingComponent from '../RatingComponent/RatingComponent';
-import ProductPrice from '../ProductPriсe/ProductPriсe';
 import './ProductListWrapper.css';
-import {Router, Switch, Route,  useParams } from 'react-router-dom';
-class ProductListWrapper extends PureComponent {
-    constructor(props) {
-      super(props);
-    } 
+import Page from './Page';
+import { Switch, Route } from 'react-router-dom';
 
+class ProductListWrapper extends PureComponent {
     render() {
-      const { products, activePage } = this.props;
-     // const { id } = useParams();
-      //const currPageProducts = products[Number(activePage) - 1];
-      console.log(products, 'products')
-     // console.log(id, '')
+      const { products } = this.props;
       return Array.isArray(products) && !!products.length 
-            ? <ul className='list'>
-              <Switch>
-                {products.map((arr, id) => (     
-                    <Route to={`/?pageNum=${id + 1}`}>
-                      {arr.map((el) => ( 
-                      <ProductItem
-                        isInStock={el.isInStock}
-                        img={el.imgProduct}
-                        title={el.name}
-                        price={<ProductPrice price={el.price} curr={'₽'} size={'m'} />}
-                        subPriceContent={<ProductPrice price={el.subPriceContent} curr={'₽'} size={'s'} />}
-                        maxRating={5}
-                        rating={el.rating}
-                        ratingComponent={RatingComponent}
-                        key={el.id}
-                      />))} 
+              ? <ul className='list'>
+                  <Switch>
+                    <Route path={'/'}>
+                      <Page products={products[0]} />
                     </Route>
-                ))}</Switch>
-              </ul>
-           : <p>Ничего не найдено...</p>;
+                    {products.map((arr, id) =>     
+                        <Route path={`/page=${id + 1}`}>
+                          <Page products={arr} />
+                        </Route>
+                    )} 
+                  </Switch>
+                </ul>
+              : <p>Ничего не найдено...</p>;
       }
 }
 
