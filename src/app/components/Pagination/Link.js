@@ -2,9 +2,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Pagination.css';
 import { setUniquePropertyToUrl } from '../../utils/searchParamsUrl';
-/// aria-current='page' - для незрячих
+/// aria-current='page' -
 export function WithNumberLink({ currPage, urlPage }) {
-    const url = () => `/page=${currPage}/`//setUniquePropertyToUrl('pageNum', currPage);
+    const url = () => setUniquePropertyToUrl('pageNum', currPage);
     const isActive = () => urlPage === currPage;
 
     return  <NavLink to={url} 
@@ -18,7 +18,7 @@ export function WithNumberLink({ currPage, urlPage }) {
 
 export function WithTextLink({ urlPage, blockPage = 1, text = 'Назад' }) {
     const isActive = () => urlPage === blockPage;
-    const url = () => `/page=${blockPage === 1 ? urlPage - 1:  urlPage + 1}/`;//setUniquePropertyToUrl('pageNum', blockPage === 1 ? urlPage - 1:  urlPage + 1);
+    const url = () => setUniquePropertyToUrl('pageNum', blockPage === 1 ? urlPage - 1:  urlPage + 1);
     
     return <NavLink activeClassName='disabled'
                     isActive={isActive}

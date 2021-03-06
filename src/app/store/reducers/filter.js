@@ -1,6 +1,5 @@
 import { initialState } from '../index';
 import { LOCATION_CHANGE } from 'connected-react-router';
-//import * as types from '../types';
 
 export default function filterReducer(state = initialState, action) {
     switch(action.type) {

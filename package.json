@@ -6,7 +6,6 @@
     "connected-react-router": "^6.8.0",
     "csssr-school-product-card": "git+https://github.com/CSSSR-School/junior-course-product-card.git",
     "csssr-school-utils": "git+https://github.com/CSSSR-School/junior-course-utils.git",
-    "query-string": "^6.14.1",
     "react": "^16.12.0",
     "react-addons-shallow-compare": "^15.6.3",
     "react-dom": "^16.12.0",
