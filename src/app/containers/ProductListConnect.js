@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProductListWrapper from '../components/ProductList/ProductListWrapper';
-import productsChunks from '../store/selectors';
+import productsChunks from '../store/selectors/productsChunks';
 
 const mapStateToProps = (state) => ({
     products: productsChunks(state)

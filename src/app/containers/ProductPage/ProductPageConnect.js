@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import products from '../../../products';
 import getCategory from '../../utils/getCategory';
+import { getMultiplePropertyFromSearch } from '../../utils/searchParamsUrl';
 import ProductPageWrapper from './ProductPage';
-import getActiveCategoryFromUrl from '../../store/selectors/activeCategory';
 
 class ProductPage extends React.Component {
     constructor(props) {
@@ -12,29 +12,16 @@ class ProductPage extends React.Component {
     }
 
     render() {
-        const { search, pathname, hash } = this.props;
-        console.log(search, pathname, 'search');
-        return <ProductPageWrapper search={search}
-                                   pathname={pathname}
-                                   hash={hash}
-                                   category={this.category}
-                                   activeCategory={getActiveCategoryFromUrl(search, 'category')} />
+        const { search } = this.props;
+        return <ProductPageWrapper category={this.category}
+                                   activeCategory={getMultiplePropertyFromSearch(search, 'category')} />
     }
 };
 
-const mapStateToProps = (state) => {
-    console.log(state,' state33333333333333');
-    return ({
-    pricemax: state.router.location.query.pricemax, 
-    pricemin: state.router.location.query.pricemin,
-    pathname: state.router.location.pathname,
-    search: state.router.location.search,
-    hash: state.router.location.hash,     
-})} ;
+const mapStateToProps = (state) => ({
+    search: state.router.location.search  
+}) ;
 
-const mapDispatchToProps = (dispatch) => ({
-});
-
-const ProductPageConnect = connect(mapStateToProps, mapDispatchToProps)(ProductPage)
+const ProductPageConnect = connect(mapStateToProps, null)(ProductPage)
 
 export default ProductPageConnect;

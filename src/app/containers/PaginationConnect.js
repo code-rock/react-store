@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PaginationWrapper from '../components/Pagination';
-import productsChunks from '../store/selectors';
+import productsChunks from '../store/selectors/productsChunks';
 
 const mapStateToProps = (state) => ({
     max: productsChunks(state).length,
