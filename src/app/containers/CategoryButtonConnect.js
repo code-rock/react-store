@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import CategoryButton from '../components/CategoryButton/CategoryButton';
-import { changeActiveCategory } from '../store/actions';
 import {getTogglePropertyFromUrl} from '../utils/searchParamsUrl';
 
 const mapDispatchToProps = (dispatch) => ({

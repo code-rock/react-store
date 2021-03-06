@@ -1,8 +1,3 @@
-export const getUniquePropertyFromUrl = (name) => {
-    const searchParams = new URLSearchParams(window.location.search);
-    return searchParams.get(name);
-}
-
 export const getMultiplePropertyFromSearch = (search, name) => {
     const searchParams = new URLSearchParams(search);
     const all = searchParams.get(name);
@@ -38,14 +33,5 @@ export const getTogglePropertyFromUrl = (name, value) => {
     } else {
         url.searchParams.delete(name);
     }
-    console.log(curr, 'url.search')
     return url.search;
-}
-
-export const deleteAllPropertyFromUrl = (title = 'Product page') => {
-    const url = new URL(window.location);
-    Array.from(url.searchParams.keys())
-         .forEach(key => url.searchParams.delete(key));
-
-    window.history.pushState({}, title, url);
 }

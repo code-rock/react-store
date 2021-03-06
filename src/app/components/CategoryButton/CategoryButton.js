@@ -5,7 +5,7 @@ import { getTogglePropertyFromUrl, getMultiplePropertyFromUrl } from '../../util
 
 class CategoryButton extends PureComponent {
     render() {
-        const { value, url, isActive } = this.props;
+        const { value } = this.props;
         return  <NavLink to={() => getTogglePropertyFromUrl('category', value)}
                          className='category'
                          activeClassName='checked'

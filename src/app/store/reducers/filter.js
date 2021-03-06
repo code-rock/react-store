@@ -9,6 +9,8 @@ export default function filterReducer(state = initialState, action) {
                     ...state, 
                     ...action.payload.location.state
                 };
+            } else {
+                return state
             }
         }
         default: {

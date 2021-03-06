@@ -4,17 +4,17 @@ import products from '../../products';
 import configureStore from './configureStore';
 
 import {
-    getUniquePropertyFromUrl,
     getMultiplePropertyFromUrl,
 } from '../utils/searchParamsUrl';
 
 const prices = getRange(products);
 const category = getCategory(products);
+const searchParams = new URLSearchParams(window.location.search);
 
 export const initialState = {
-        pricemin: getUniquePropertyFromUrl('pricemin') || prices.min, 
-        pricemax: getUniquePropertyFromUrl('pricemax') || prices.max,
-        discount: getUniquePropertyFromUrl('discount') || 0,
+        pricemin: searchParams.get('pricemin') || prices.min, 
+        pricemax: searchParams.get('pricemax') || prices.max,
+        discount: searchParams.get('discount') || 0,
         activeCategory: getMultiplePropertyFromUrl('category') || category,
         products: products,
         numProductsPerPage: 6,    

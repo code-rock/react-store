@@ -8,12 +8,10 @@ import ContentColumn from '../../components/ContentColumn/ContentColumn';
 import DiscountFilter from '../../components/DiscountFilter/DiscountFilter';
 import PaginationConnect from '../PaginationConnect';
 
-import UsePageNumber from '../../hocs/UsePageNumber';
-
 class ProductPageWrapper extends PureComponent {
     render() {
-        const { onSubmit, category, activeCategory, search, pathname, hash} = this.props;
-        console.log(activeCategory, 'activeCategory 33');
+        const { onSubmit, category, activeCategory } = this.props;
+        
         return  <ContentColumn>
                     <form onSubmit={onSubmit}>
                         <FilterField title="Цена"><RangeFilter /></FilterField>                       

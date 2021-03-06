@@ -16,6 +16,6 @@ export default function configureStore(preloadedState) {
       ),
     ),
   )
-  console.log(store, 'store')      
+      
   return store;
 }
