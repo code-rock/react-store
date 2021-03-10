@@ -2,9 +2,7 @@ import React, { PureComponent } from 'react';
 import Lamp from '../../icons/Lamp';
 import BackButton from '../../components/BackButton/BackButton';
 import './ProductInfoPage.css';
-import ProductItem from 'csssr-school-product-card';
 import ProductPrice from '../../components/ProductPriсe/ProductPriсe';
-import RatingComponent from '../../components/RatingComponent/RatingComponent';
 import { Route } from 'react-router';
 import ProductCardWrapper from '../../components/ProductCard/ProductCardWrapper';
 

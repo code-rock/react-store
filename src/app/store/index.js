@@ -1,14 +1,8 @@
-import getCategory from '../utils/getCategory';
 import getRange from '../utils/getRange';
 import products from '../../products';
 import configureStore from './configureStore';
 
-import {
-    getMultiplePropertyFromUrl,
-} from '../utils/searchParamsUrl';
-
 const prices = getRange(products);
-const category = getCategory(products);
 const searchParams = new URLSearchParams(window.location.search);
 
 export const initialState = {
