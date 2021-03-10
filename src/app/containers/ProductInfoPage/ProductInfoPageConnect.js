@@ -10,7 +10,7 @@ class ProductInfoPageWrapper extends PureComponent {
 };
 
 const mapStateToProps = ({ filter, router }) => ({
-    productID: router.location.state.productID,
+    productID: router.location.state && router.location.state.productID,
     products: filter.products
 });
 

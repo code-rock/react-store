@@ -6,6 +6,7 @@ import ProductItem from 'csssr-school-product-card';
 import ProductPrice from '../../components/ProductPriсe/ProductPriсe';
 import RatingComponent from '../../components/RatingComponent/RatingComponent';
 import { Route } from 'react-router';
+import ProductCardWrapper from '../../components/ProductCard/ProductCardWrapper';
 
 class ProductInfoPage extends PureComponent {
     render() {
@@ -16,18 +17,16 @@ class ProductInfoPage extends PureComponent {
                         <BackButton />
                         {product.id
                             ? <div className="icon__404">
-                                <ProductItem
-                                    isInStock={product.isInStock}
-                                    img={product.imgProduct}
-                                    title={product.name}
-                                    price={<ProductPrice price={product.price} curr={'₽'} size={'m'} />}
-                                    subPriceContent={<ProductPrice price={product.subPriceContent} curr={'₽'} size={'s'} />}
-                                    maxRating={5}
-                                    rating={product.rating}
-                                    ratingComponent={RatingComponent}
-                                    key={product.id}
-                                    className={{background: 'red'}}
-                                />
+                                <ProductCardWrapper
+                                isInStock={product.isInStock}
+                                img={`../${product.imgProduct}`}
+                                title={product.name}
+                                price={<ProductPrice price={product.price} curr={'₽'} size={'m'} />}
+                                subPriceContent={<ProductPrice price={product.subPriceContent} curr={'₽'} size={'s'} />}
+                                maxRating={5}
+                                rating={product.rating}
+                                key={product.id}
+                                type={'horizontal'} />
                               </div>
                             : <div className="icon__404"><Lamp /></div>}
                         

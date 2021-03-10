@@ -8,7 +8,7 @@ export default class Page extends PureComponent {
     render() {
         const { products } = this.props;
         return products.map((el) => ( 
-                <Link to={{ pathname: `/product/${el.id}`, state: { productID: el.id}}}>
+                <Link className='product__link' to={{ pathname: `/product/${el.id}`, state: { productID: el.id}}}>
                     <ProductItem
                         isInStock={el.isInStock}
                         img={el.imgProduct}
