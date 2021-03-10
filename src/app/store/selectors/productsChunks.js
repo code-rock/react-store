@@ -1,12 +1,13 @@
 import { createSelector } from 'reselect';
 import getProducts from '../../utils/getProducts';
 import spliteByNumber from '../../utils/spliteByNumber';
+import { getMultiplePropertyFromUrl } from '../../utils/searchParamsUrl';
 
-const getFilterValue = ({ filter }) => ({
+const getFilterValue = ({ filter, router }) => ({
     pricemin: filter.pricemin, 
     pricemax: filter.pricemax, 
     discount: filter.discount, 
-    activeCategory: filter.activeCategory,
+    activeCategory: getMultiplePropertyFromUrl('category', router.location),
     products: filter.products,
     numProductsPerPage: filter.numProductsPerPage,
 });

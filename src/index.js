@@ -9,12 +9,20 @@ import ProductPageConnect from './app/containers/ProductPage/ProductPageConnect'
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from './app/store/configureStore';
+import ProductInfoPageConnect from './app/containers/ProductInfoPage/ProductInfoPageConnect';
+import { Route, Switch } from 'react-router';
 
 function App() {
     return (    
         <main>
-            <ListTitle>Список товаров</ListTitle>
-            <ProductPageConnect />
+            <Switch>
+                <Route path='/product' render={() => <ProductInfoPageConnect />} />
+                <Route path='/' render={() => 
+                    <div>
+                        <ListTitle>Список товаров</ListTitle>
+                        <ProductPageConnect />
+                    </div>} />
+            </Switch>
         </main>
     ) 
 }

@@ -15,7 +15,6 @@ export const initialState = {
         pricemin: searchParams.get('pricemin') || prices.min, 
         pricemax: searchParams.get('pricemax') || prices.max,
         discount: searchParams.get('discount') || 0,
-        activeCategory: getMultiplePropertyFromUrl('category') || category,
         products: products,
         numProductsPerPage: 6,    
 };
