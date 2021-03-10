@@ -16,6 +16,12 @@ export const setUniquePropertyToUrl = (name, value) => {
     return url.search;
 }
 
+export const deletePropertyFromUrl = (name, history) => {
+    const url = new URL(window.location);
+    url.searchParams.delete(name);
+    history.push(url.search);
+}
+
 // Добовляет параметр через запятую если еще не было соответствующего значения и удаляет если было
 // Возвращает массив текущих значений
 export const getTogglePropertyFromUrl = (name, value) => {

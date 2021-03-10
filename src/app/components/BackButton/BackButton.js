@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import BackArrow from '../../icons/BackArrow';
 import './BackButton.css';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class BackButton extends PureComponent {
     goBack = () => this.props.history.goBack();
