@@ -2,7 +2,7 @@ import React from 'react';
 import './ProductListWrapper.css';
 import Page from './Page';
 import UsePageNumber from '../../hocs/UsePageNumber';
-import { deletePropertyFromUrl } from '../../utils/searchParamsUrl';
+import { setSearchPropertyToHistory } from '../../utils/searchParamsUrl';
 import { withRouter } from 'react-router-dom';
 
 function ProductListWrapper({ products, history }) {
@@ -10,7 +10,7 @@ function ProductListWrapper({ products, history }) {
       const maxPage = products.length;      
 
       if (page > maxPage) {
-        deletePropertyFromUrl('pageNum', history); // поумолчанию pageNum становится 1
+        setSearchPropertyToHistory('pageNum', 1, history);
       }
 
       const curr = products[page - 1];

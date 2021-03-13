@@ -16,9 +16,9 @@ export const setUniquePropertyToUrl = (name, value) => {
     return url.search;
 }
 
-export const deletePropertyFromUrl = (name, history) => {
+export const setSearchPropertyToHistory = (name, value, history) => {
     const url = new URL(window.location);
-    url.searchParams.delete(name);
+    url.searchParams.set(name, value);
     history.push(url.search);
 }
 
