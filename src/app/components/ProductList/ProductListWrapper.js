@@ -7,9 +7,13 @@ import { withRouter } from 'react-router-dom';
 
 function ProductListWrapper({ products, history }) {
       const { page } = UsePageNumber();
-      const maxPage = products.length;
-      if (maxPage < page) deletePropertyFromUrl('pageNum', history);
-      const curr = products[maxPage < page ? 0 : page - 1];
+      const maxPage = products.length;      
+
+      if (page > maxPage) {
+        deletePropertyFromUrl('pageNum', history); // поумолчанию pageNum становится 1
+      }
+
+      const curr = products[page - 1];
       return  <div className='list'>
                 { 
                   Array.isArray(curr) && curr.length

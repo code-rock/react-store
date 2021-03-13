@@ -1,43 +1,33 @@
 import React from 'react';
 import './Pagination.css';
 import UsePageNumber from '../../hocs/UsePageNumber';
-import { WithNumberLink, WithTextLink } from './Link';
+import { NumberLink, TextLink } from './Link';
+import range from '../../utils/range';
+import { isShort, isStart, isEnd } from '../../utils/checks';
 
 export default function PaginationWrapper({ max = 4 }) {
     const { page } = UsePageNumber();
     const centerPages = getPaginationCenterPages(page, max);
 
     return <div className="pagination">
-                <WithTextLink urlPage={page} blockPage={1} text={'Назад'} />
+                <TextLink urlPage={page} blockPage={1} text={'Назад'} />
                 {!isStart(page) && !isShort(max) && 
                     <>
-                        <WithNumberLink currPage={1} urlPage={page} />
+                        <NumberLink currPage={1} urlPage={page} />
                         <span>...</span>
                     </>
                 }
 
-                {centerPages.map(num => <WithNumberLink currPage={num} urlPage={page} />)}
+                {centerPages.map(num => <NumberLink currPage={num} urlPage={page} />)}
 
                 {!isEnd(page) && !isShort(max) && 
                     <>
                         <span>...</span>
-                        <WithNumberLink currPage={max} urlPage={page} />
+                        <NumberLink currPage={max} urlPage={page} />
                     </> 
                 }
-                <WithTextLink urlPage={page} blockPage={max} text={'Вперед'} />  
+                <TextLink urlPage={page} blockPage={max} text={'Вперед'} />  
            </div>
-}
-
-function isShort(max) {
-    return max <= 5;
-} 
-
-function isStart(active) {
-    return active <= 3;
-}
-
-function isEnd(active, max) {
-    return active >= max - 3;
 }
 
 function getRangeOfValues(active, max) {
@@ -53,15 +43,7 @@ function getRangeOfValues(active, max) {
     }
 }
 
-function fillRangeOfValues(start, end) {
-    let range = [];
-    for (let i = start; i <= end; i++) {
-        range.push(i);
-    }
-    return range; 
-}
-
 function getPaginationCenterPages (activePage, maxPage) {
     const [ start, end ] = getRangeOfValues(activePage, maxPage);
-    return fillRangeOfValues(start, end);
+    return range(start, end);
 }

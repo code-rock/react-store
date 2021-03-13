@@ -9,3 +9,15 @@ export const isDiscount = (withSale, beforeSale, discount) => {
 export const isInCategory = (productCategory, activeCategory) => {
     return activeCategory.includes(productCategory) || !activeCategory.length;
 }
+
+export function isShort(max) {
+    return max <= 5;
+} 
+
+export function isStart(active) {
+    return active <= 3;
+}
+
+export function isEnd(active, max) {
+    return active >= max - 3;
+}

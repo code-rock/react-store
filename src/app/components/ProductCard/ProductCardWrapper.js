@@ -1,17 +1,9 @@
 import React from 'react';
 import './ProductCard.css';
 import RatingComponent from '../../components/RatingComponent/RatingComponent';
-
-function range(to) {
-    let range = []
-    for (let i = 1; i <= to; i++) {
-        range.push(i);
-    }
-    return range ;
-};
+import range from '../../utils/range';
 
 // type: 'horizontal', 'vertical'
-
 export default function ProductCardWrapper({ isInStock, img, title, price, subPriceContent, maxRating, rating, type = 'vertical' }) {
     return <div className={`goods ${type}`}>
                 <div>
@@ -21,7 +13,7 @@ export default function ProductCardWrapper({ isInStock, img, title, price, subPr
                 <div class={type === 'horizontal' ? 'info' : ''}>
                     <div className='goodsName'>{title}</div>
                     <div>
-                        {range(maxRating).map(i => <RatingComponent key={i} isFilled={i <= rating} />)}
+                        {range(1, maxRating).map(i => <RatingComponent key={i} isFilled={i <= rating} />)}
                     </div>
                     <div className='goodsPrise'>
                         {price}{subPriceContent}
