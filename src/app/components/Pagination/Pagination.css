@@ -1,0 +1,52 @@
+.pagination {
+  margin: 38px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination > a,
+.pagination > span {
+  display: inline-block;
+
+  min-width: 34px;
+  padding: 8px;
+  margin: 1px;
+
+  background: #ffffff;
+  border: 1px solid #c5cfde;
+  box-sizing: border-box;
+
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #7e8fa4;
+  text-decoration: none;
+}
+
+.pagination > .big-page {
+  width: 88px;
+}
+
+.pagination > .big-page {
+  margin: 0 16px;
+}
+
+.pagination a:hover {
+  background: #9fbde7;
+  color: white;
+  border: none;
+}
+
+.pagination a:active,
+.pagination .link_active {
+  background: #5695ed;
+  color: white;
+  border: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

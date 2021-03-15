@@ -1,0 +1,16 @@
+.back-button__text {
+  display: flex;
+  font-family: "Open Sans";
+  font-size: 36px;
+  line-height: 48px;
+  color: #323c48;
+  justify-content: center;
+  align-items: center;
+}
+
+.back-button__icon {
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  margin-right: 19px;
+}

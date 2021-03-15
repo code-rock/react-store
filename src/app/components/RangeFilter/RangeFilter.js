@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './RangeFilter.css';
-import LogRender from '../../containers/LogRender';
-import InputNumberConnect from '../InputNumber/InputNumberConnect';
+import InputNumberConnect from '../../containers/InputNumberConnect';
 
-class RangeFilter extends LogRender {
+class RangeFilter extends PureComponent {
     render() {
         return <div className="range-filter">
                     <label className="filter__label start-label" htmlFor="pricemin">от</label>

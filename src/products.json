@@ -58,5 +58,185 @@
     "subPriceContent": "",
     "rating": 5,
     "category": "Clothes"
+  },
+  {
+    "id": 7,
+    "name": "Имя товара1",
+    "isInStock": true,
+    "imgProduct": "./photo/1.png",
+    "price": "23",
+    "subPriceContent": "25000",
+    "rating": 4,
+    "category": "Clothes"
+  },
+  {
+    "id": 8,
+    "name": "Имя товара2",
+    "isInStock": false,
+    "imgProduct": "./photo/2.png",
+    "price": "23000",
+    "subPriceContent": "25000",
+    "rating": 3,
+    "category": "Books"
+  },
+  {
+    "id": 9,
+    "name": "Имя товара3",
+    "isInStock": false,
+    "imgProduct": "./photo/3.png",
+    "price": "2300000",
+    "subPriceContent": "",
+    "rating": 2,
+    "category": "Books"
+  },
+  {
+    "id": 10,
+    "name": "Имя товара4",
+    "isInStock": false,
+    "imgProduct": "./photo/4.png",
+    "price": "230000",
+    "subPriceContent": "",
+    "rating": 4,
+    "category": "Books"
+  },
+  {
+    "id": 11,
+    "name": "Имя товара5",
+    "imgProduct": "./photo/5.png",
+    "isInStock": true,
+    "price": "230",
+    "subPriceContent": "",
+    "rating": 0,
+    "category": "Books"
+  },
+  {
+    "id": 12,
+    "name": "Имя товара6",
+    "isInStock": false,
+    "imgProduct": "./photo/6.png",
+    "price": "2300",
+    "subPriceContent": "",
+    "rating": 5,
+    "category": "Clothes"
+  },
+  {
+    "id": 13,
+    "name": "Имя товара1",
+    "isInStock": true,
+    "imgProduct": "./photo/1.png",
+    "price": "23",
+    "subPriceContent": "25000",
+    "rating": 4,
+    "category": "Clothes"
+  },
+  {
+    "id": 14,
+    "name": "Имя товара2",
+    "isInStock": false,
+    "imgProduct": "./photo/2.png",
+    "price": "23000",
+    "subPriceContent": "25000",
+    "rating": 3,
+    "category": "Books"
+  },
+  {
+    "id": 15,
+    "name": "Имя товара3",
+    "isInStock": false,
+    "imgProduct": "./photo/3.png",
+    "price": "2300000",
+    "subPriceContent": "",
+    "rating": 2,
+    "category": "Books"
+  },
+  {
+    "id": 16,
+    "name": "Имя товара4",
+    "isInStock": false,
+    "imgProduct": "./photo/4.png",
+    "price": "230000",
+    "subPriceContent": "",
+    "rating": 4,
+    "category": "Books"
+  },
+  {
+    "id": 17,
+    "name": "Имя товара5",
+    "imgProduct": "./photo/5.png",
+    "isInStock": true,
+    "price": "230",
+    "subPriceContent": "",
+    "rating": 0,
+    "category": "Books"
+  },
+  {
+    "id": 18,
+    "name": "Имя товара6",
+    "isInStock": false,
+    "imgProduct": "./photo/6.png",
+    "price": "2300",
+    "subPriceContent": "",
+    "rating": 5,
+    "category": "Clothes"
+  },
+  {
+    "id": 19,
+    "name": "Имя товара1",
+    "isInStock": true,
+    "imgProduct": "./photo/1.png",
+    "price": "23",
+    "subPriceContent": "25000",
+    "rating": 4,
+    "category": "Clothes"
+  },
+  {
+    "id": 20,
+    "name": "Имя товара2",
+    "isInStock": false,
+    "imgProduct": "./photo/2.png",
+    "price": "23000",
+    "subPriceContent": "25000",
+    "rating": 3,
+    "category": "Books"
+  },
+  {
+    "id": 21,
+    "name": "Имя товара3",
+    "isInStock": false,
+    "imgProduct": "./photo/3.png",
+    "price": "2300000",
+    "subPriceContent": "",
+    "rating": 2,
+    "category": "Books"
+  },
+  {
+    "id": 22,
+    "name": "Имя товара4",
+    "isInStock": false,
+    "imgProduct": "./photo/4.png",
+    "price": "230000",
+    "subPriceContent": "",
+    "rating": 4,
+    "category": "Books"
+  },
+  {
+    "id": 23,
+    "name": "Имя товара5",
+    "imgProduct": "./photo/5.png",
+    "isInStock": true,
+    "price": "230",
+    "subPriceContent": "",
+    "rating": 0,
+    "category": "Books"
+  },
+  {
+    "id": 24,
+    "name": "Имя товара6",
+    "isInStock": false,
+    "imgProduct": "./photo/6.png",
+    "price": "2300",
+    "subPriceContent": "",
+    "rating": 5,
+    "category": "Clothes"
   }
 ]

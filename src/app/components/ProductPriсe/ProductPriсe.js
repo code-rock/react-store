@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 
 import './ProductPrice.css';
-import LogRender from '../../containers/LogRender';
 import disaggregation from '../../utils/disaggregation';
 
-class ProductPrice extends LogRender {
+class ProductPrice extends PureComponent {
     render() {
         if (this.props.price) {
             const discharges = disaggregation(this.props.price);

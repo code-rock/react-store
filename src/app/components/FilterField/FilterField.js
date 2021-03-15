@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import './FilterField.css';
-import LogRender from '../../containers/LogRender';
 
-class FilterField extends LogRender {
+class FilterField extends PureComponent {
     render() {
         const { title, children } = this.props;
 

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './InputNumber.css';
-import LogRender from '../../containers/LogRender';
 import withState from '../../hocs/WithState';
 
-export class InputNumber extends LogRender {
+export class InputNumber extends PureComponent {
     render() {
         const { value, onChange, onKeyDown, min, id} = this.props;
 

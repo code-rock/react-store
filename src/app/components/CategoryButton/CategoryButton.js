@@ -1,24 +1,18 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
+import { NavLink } from 'react-router-dom';
 import './CategoryButton.css';
-import LogRender from '../../containers/LogRender';
+import { getTogglePropertyFromUrl, getMultiplePropertyFromUrl } from '../../utils/searchParamsUrl';
 
-class CategoryButton extends LogRender{
+class CategoryButton extends PureComponent {
     render() {
-        const { value, onChange, isActive } = this.props;
-     
-        return  <React.Fragment>
-                    <input type="checkbox"
-                        value={value}
-                        id={value}
-                        name={value}
-                        onChange={onChange}
-                        checked={isActive}
-                        className='category_checkbox' />
-                    <label className='category_label' 
-                           htmlFor={value}>{value}</label>
-                </React.Fragment>
-                        
-            
+        const { value } = this.props;
+        return  <NavLink to={() => getTogglePropertyFromUrl('category', value)}
+                         className='category'
+                         activeClassName='checked'
+                         isActive={(location) => getMultiplePropertyFromUrl('category', location.search).includes(value)}
+                >
+                    {value}
+               </NavLink>      
     }
 }
 

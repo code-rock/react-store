@@ -1,25 +1,17 @@
-import { createStore } from 'redux';
-import filterChangeReducer from './reducers';
-import getProducts from '../utils/getProducts';
 import getRange from '../utils/getRange';
 import products from '../../products';
-
-import {
-    getUniquePropertyFromUrl,
-    getMultiplePropertyFromUrl,
-} from '../utils/searchParamsUrl';
+import configureStore from './configureStore';
 
 const prices = getRange(products);
+const searchParams = new URLSearchParams(window.location.search);
 
 export const initialState = {
-    pricemin: getUniquePropertyFromUrl('pricemin') || prices.min, 
-    pricemax: getUniquePropertyFromUrl('pricemax') || prices.max,
-    discount: getUniquePropertyFromUrl('discount') || 0,
-    activeCategory: getMultiplePropertyFromUrl('category')
+        pricemin: searchParams.get('pricemin') || prices.min, 
+        pricemax: searchParams.get('pricemax') || prices.max,
+        discount: searchParams.get('discount') || 0,
+        products: products,
+        numProductsPerPage: 6,    
 };
 
-const currProducts = getProducts(products, initialState.pricemin, initialState.pricemax, initialState.discount, initialState.activeCategory);
-initialState.productsWorthShowing = currProducts.length ? currProducts : products;
-const store = createStore(filterChangeReducer, initialState);
-
+const store = configureStore(initialState);
 export default store;

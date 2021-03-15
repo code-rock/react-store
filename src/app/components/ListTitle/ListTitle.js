@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './ListTitle.css';
-import LogRender from '../../containers/LogRender';
 
-class ListTitle extends LogRender {
+class ListTitle extends PureComponent {
     render() {
          return <h1 className='title'>
                     {this.props.children}

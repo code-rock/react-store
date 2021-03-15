@@ -1,12 +1,12 @@
-import React from 'react';
-import './FilterFormButton.css';
-import LogRender from '../../containers/LogRender';
+import React, { PureComponent } from 'react';
+import { Link } from 'react-router-dom';
+import './FilterFormButton.css'; 
 
-class FilterFormButton extends LogRender {
+class FilterFormButton extends PureComponent {
     render() {
-        const { value, onSubmit } = this.props;
-
-        return <input type='submit' onSubmit={onSubmit} value={value} className='filter-form-button' />
+        return  <Link to="/" className='filter-form-button'>    
+                    {this.props.value}
+                </Link>
     }
 }
 

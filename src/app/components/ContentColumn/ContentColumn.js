@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import './ContentColumn.css';
-import LogRender from '../../containers/LogRender';
 
-class ContentColumn extends LogRender{
+class ContentColumn extends PureComponent {
     render() {
         return <div className="content-columns">
                     {this.props.children}
