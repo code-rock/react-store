@@ -12,5 +12,7 @@ export default memo(function ProductList({products, status, page}) {
         case 'error': 
         case 'nothing':
             return <ErrorWarning text={'Товары не найдены'} />;
+        default:
+        break;        
       }
 })

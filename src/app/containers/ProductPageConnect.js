@@ -1,13 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import products from '../../products';
-import getCategory from '../utils/getCategory';
-import { getMultiplePropertyFromSearch } from '../utils/searchParamsUrl';
-//import ProductsPage from '../components/ProductsPage';
-import productsReceived from '../store/actions/productsReceived';
-// import productsReceived from '../../store/actions/productsReceived';
-import productsFilterChanged from '../store/actions/productsFilterChanged';
-import {setSearchPropertyToHistory} from '../utils/searchParamsUrl';
+import { withRouter } from 'react-router'; 
 import FilterFormButton from '../components/FilterFormButton/FilterFormButton';
 import CategoryButton from '../components/CategoryButton/CategoryButton';
 import ProductsList from '../components/ProductsList';
@@ -18,19 +11,15 @@ import ContentColumn from '../components/ContentColumn/ContentColumn';
 import DiscountFilter from '../components/DiscountFilter/DiscountFilter';
 import productsFiltersClear from '../store/actions/productsFiltersClear';
 import productsChunks from '../store/selectors/productsChunks';
-import { withRouter } from 'react-router'; 
 import productsStatusChanged from '../store/actions/productsStatusChanged';
 import  addProducts from '../store/actions/productsAdd';
-class ProductsPage extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
+class ProductsPage extends React.Component {
     componentDidMount() {
         this.props.setProducts('https://course-api.school.csssr.com/products');
     }
 
-    getSnapshotBeforeUpdate(prevProps, prevState) {
+    getSnapshotBeforeUpdate() {
         if (this.props.status !== 'loading') {
             if (this.props.productsChunks.length) {
                 if (this.props.status !== 'ok') {
@@ -44,8 +33,45 @@ class ProductsPage extends React.Component {
         } 
     }
 
+    togglePropsInArr(lastActive, value) {
+        if (lastActive.length) {
+            if (lastActive.includes(value)) {
+                return lastActive.filter(item => item !== value);
+            } else {
+                return [...lastActive, value];
+            }
+        } else {
+            return [ value ];
+        }
+    }
+
+    setCategoriesUrl(location, value) {
+        const searchParams = new URLSearchParams(location.search);
+        const lastActive = searchParams.get('activeCategory');
+        const lastActiveArr = lastActive ? lastActive.split(',') : [];
+        
+        const goTo = {
+            path: '/',
+            search: '',
+            state: {
+                activeCategory: this.togglePropsInArr(lastActiveArr, value),
+                page: 1
+            }
+        }
+
+        if (goTo.state.activeCategory.length) {
+            searchParams.set('activeCategory', goTo.state.activeCategory.join(','));
+        } else {
+            searchParams.delete('activeCategory');
+        }        
+
+        searchParams.set('page', 1);
+        goTo.search = searchParams.toString();
+        return goTo;
+    }
+
     render() {
-        const { status, productsChunks, page, clearFilters, categories, onSubmit, activeCategory } = this.props;
+        const { location, status, productsChunks, page, clearFilters, categories, onSubmit, activeCategory } = this.props;
 
         return <ContentColumn>
                     <form onSubmit={onSubmit}>
@@ -55,7 +81,7 @@ class ProductsPage extends React.Component {
                             {categories.map(type => ( 
                                 <CategoryButton isActive={activeCategory.includes(type)}  
                                                 value={type}
-                                                url={'/'} />
+                                                goTo={() => this.setCategoriesUrl(location, type)} />
                             ))}
                         </FilterField>     
                         <FilterFormButton value="Сбросить фильтры" handleClick={clearFilters} url='/' />       
@@ -69,6 +95,7 @@ class ProductsPage extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
+    location: state.router.location,
     search: state.router.location.search,
     categories: state.products.categories,
     productsChunks: productsChunks(state),
