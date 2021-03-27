@@ -19,7 +19,6 @@ export const setUniquePropertyToUrl = (name, value) => {
 export const setSearchPropertyToHistory = (name, value, history) => {
     const url = new URL(window.location);
     url.searchParams.set(name, value);
-    console.log(history, 'history');
     history.push(url.search);
 }
 
@@ -41,6 +40,5 @@ export const getTogglePropertyFromUrl = (name, value) => {
         url.searchParams.delete(name);
     }
 
-    console.log(curr, '///////////////// curr');
     return { search: url.search, values: curr, url: url };
 }

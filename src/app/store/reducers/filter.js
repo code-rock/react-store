@@ -5,7 +5,6 @@ import { CLEAR_FILTERS } from '../types';
 export default function filterReducer(state = initialState, action) {
     switch(action.type) {
         case LOCATION_CHANGE: {
-            console.log(action, state,'action.payload.location.state')
             if (action.payload.location.state) {
                 return { 
                     ...state, 

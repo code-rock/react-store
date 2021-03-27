@@ -25,20 +25,17 @@ const addProductsFailure = status => ({
 });
   
 const addProducts = ({ url = 'https://course-api.school.csssr.com/products' }) => {
-    console.log('start ___________')
     return dispatch => {
         dispatch(addProductsStarted());
   
         fetch(url)
             .then(response => {
                 if (response.ok) {
-                    console.log('response.json();')
                     return response.json();
                 } else {                    
                     throw new Error('Что-то пошло не так ...');
                 }
             }).then(data => {
-                console.log(data.products.length ,'data.products.length')
                 if (data.products.length) {
                     const categories = getCategory(data.products, 'category');
                     dispatch(addProductsSuccess(data.products, categories, 'ok'));

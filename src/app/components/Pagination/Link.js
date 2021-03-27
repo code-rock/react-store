@@ -6,7 +6,7 @@ import { setUniquePropertyToUrl } from '../../utils/searchParamsUrl';
 export function NumberLink({ currPage, urlPage }) {
     const url = () => setUniquePropertyToUrl('page', currPage);
     const isActive = () => urlPage === currPage;
-console.log( url(),'url_________________');
+    
     return  <NavLink to={{path: '/', search: url(), state: { page: currPage }}} 
                 activeClassName='link_active'
                 isActive={isActive}
