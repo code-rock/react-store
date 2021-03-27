@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setUniquePropertyToUrl } from '../utils/searchParamsUrl';
 import { InputNumberWithState } from '../components/InputNumber/InputNumber';
 import { push } from 'connected-react-router'
 
@@ -25,7 +24,13 @@ const mapStateToProps = ({ filter }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    addToUrl: (id, value) =>  dispatch(push(setUniquePropertyToUrl(id, value || 0), { [id]: value || 0 }))
+    addToUrl: (id, value) =>  {
+        const url = new URL(window.location);
+        url.searchParams.set(id, value || 0);
+        url.searchParams.delete('page');
+        
+        dispatch(push(url.search, { [id]: value || 0, page: 1 }))
+    }
 });
 
 const InputNumberConnect = connect(mapStateToProps, mapDispatchToProps)(InputNumberWrapper)

@@ -1,0 +1,36 @@
+.card-skeleton {
+  display: grid;
+  grid-template-rows: 224px 16px 24px 4px 24px 4px 24px 56px;
+  grid-template-columns: 224px;
+  grid-template-areas: "image" "." "title" "." "price" "." "rating" ".";
+  width: 240px;
+  height: 386px;
+}
+
+.card-skeleton__image {
+  grid-area: image;
+  width: 224px;
+  height: 200px;
+  background: #f5f6fa;
+}
+
+.card-skeleton__title {
+  grid-area: title;
+  width: 175px;
+  height: 24px;
+  background: #f5f6fa;
+}
+
+.card-skeleton__price {
+  grid-area: price;
+  width: 119px;
+  height: 24px;
+  background: #f5f6fa;
+}
+
+.card-skeleton__rating {
+  grid-area: rating;
+  width: 146px;
+  height: 24px;
+  background: #f5f6fa;
+}

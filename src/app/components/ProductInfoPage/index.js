@@ -1,16 +1,13 @@
-import React, { PureComponent } from 'react';
-import Lamp from '../../icons/Lamp';
-import BackButton from '../../components/BackButton/BackButton';
-import './ProductInfoPage.css';
-import ProductPrice from '../../components/ProductPriсe/ProductPriсe';
+import React, { memo } from 'react';
 import { Route } from 'react-router';
-import ProductCardWrapper from '../../components/ProductCard/ProductCardWrapper';
+import ErrorWarning from '../ErrorWarning';
+import BackButton from '../BackButton/BackButton';
+import ProductPrice from '../ProductPriсe/ProductPriсe';
+import ProductCardWrapper from '../ProductCard/ProductCardWrapper';
+import './styles.css';
 
-class ProductInfoPage extends PureComponent {
-    render() {
-        const { product = {} } = this.props;
-
-        return  <Route to={`/product/${product.id}`}>
+function ProductInfoPage({ product }) {
+    return  <Route to={`/product/${product.id}`}>
                     <div className="product-page__container">
                         <BackButton />
                         {product.id
@@ -26,11 +23,11 @@ class ProductInfoPage extends PureComponent {
                                 key={product.id}
                                 type={'horizontal'} />
                               </div>
-                            : <div className="icon__404"><Lamp /></div>}
+                            : <ErrorWarning />
+                        }
                         
                     </div>
                 </Route>
-    }
 };
 
-export default ProductInfoPage;
+export default memo(ProductInfoPage);

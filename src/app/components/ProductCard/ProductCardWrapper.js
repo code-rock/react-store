@@ -1,6 +1,6 @@
 import React from 'react';
 import './ProductCard.css';
-import RatingComponent from '../../components/RatingComponent/RatingComponent';
+import RatingComponent from '../RatingStar';
 import range from '../../utils/range';
 
 // type: 'horizontal', 'vertical'

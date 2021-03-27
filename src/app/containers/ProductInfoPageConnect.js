@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import ProductInfoPage from './ProductInfoPage';
+import ProductInfoPage from '../components/ProductInfoPage';
 
 class ProductInfoPageWrapper extends PureComponent {
     render() {

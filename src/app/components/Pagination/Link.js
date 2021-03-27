@@ -4,10 +4,10 @@ import './Pagination.css';
 import { setUniquePropertyToUrl } from '../../utils/searchParamsUrl';
 /// aria-current='page' -
 export function NumberLink({ currPage, urlPage }) {
-    const url = () => setUniquePropertyToUrl('pageNum', currPage);
+    const url = () => setUniquePropertyToUrl('page', currPage);
     const isActive = () => urlPage === currPage;
-
-    return  <NavLink to={url} 
+    
+    return  <NavLink to={{path: '/', search: url(), state: { page: currPage }}} 
                 activeClassName='link_active'
                 isActive={isActive}
                 alt={`Page ${currPage}`}
@@ -18,13 +18,14 @@ export function NumberLink({ currPage, urlPage }) {
 
 export function TextLink({ urlPage, blockPage = 1, text = 'Назад' }) {
     const isActive = () => urlPage === blockPage;
-    const url = () => setUniquePropertyToUrl('pageNum', blockPage === 1 ? urlPage - 1:  urlPage + 1);
-    
+    const page =  blockPage === 1 ? urlPage - 1:  urlPage + 1;
+    const url = () => setUniquePropertyToUrl('page', page);
+
     return <NavLink activeClassName='disabled'
                     isActive={isActive}
                     className='big-page'
                     alt={text}
-                    to={url}
+                    to={{path: '/', search: url(), state: { page: page }}}
                  >
                 {text}
             </NavLink>

@@ -39,5 +39,6 @@ export const getTogglePropertyFromUrl = (name, value) => {
     } else {
         url.searchParams.delete(name);
     }
-    return url.search;
+
+    return { search: url.search, values: curr, url: url };
 }

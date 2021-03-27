@@ -1,16 +1,17 @@
 import { createSelector } from 'reselect';
 import getProducts from '../../utils/getProducts';
 import spliteByNumber from '../../utils/spliteByNumber';
-import { getMultiplePropertyFromUrl } from '../../utils/searchParamsUrl';
 
-const getFilterValue = ({ filter, router }) => ({
-    pricemin: filter.pricemin, 
-    pricemax: filter.pricemax, 
-    discount: filter.discount, 
-    activeCategory: getMultiplePropertyFromUrl('category', router.location),
-    products: filter.products,
-    numProductsPerPage: filter.numProductsPerPage,
-});
+const getFilterValue = ({ filter, products }) => {
+    return {
+        pricemin: filter.pricemin, 
+        pricemax: filter.pricemax, 
+        discount: filter.discount, 
+        activeCategory: filter.activeCategory,
+        products: products.products,
+        numProductsPerPage: filter.numProductsPerPage,
+    }
+};
 
 const productsChunks = createSelector(
     getFilterValue,

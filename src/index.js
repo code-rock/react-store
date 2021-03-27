@@ -5,11 +5,11 @@ import './index.css';
 
 import store from './app/store';
 import ListTitle from './app/components/ListTitle/ListTitle';
-import ProductPageConnect from './app/containers/ProductPage/ProductPageConnect';
+import ProductPageConnect from './app/containers/ProductPageConnect';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import { history } from './app/store/configureStore';
-import ProductInfoPageConnect from './app/containers/ProductInfoPage/ProductInfoPageConnect';
+import ProductInfoPageConnect from './app/containers/ProductInfoPageConnect';
 import { Route, Switch } from 'react-router';
 
 function App() {
