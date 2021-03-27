@@ -1,17 +1,13 @@
-import React, { PureComponent } from 'react';
+import React, { memo } from 'react';
 import BackArrow from '../../icons/BackArrow';
 import './BackButton.css';
 import { withRouter } from 'react-router-dom';
 
-class BackButton extends PureComponent {
-    goBack = () => this.props.history.goBack();
-    render() {
-        return <div className="back-button__text"
-                    onClick={this.goBack}>
-                    <div className="back-button__icon"><BackArrow /></div>
-                    <div>Товар не найден</div>
-               </div>
-    }
+function BackButton({ history, text = 'Товар не найден', handleClick = () => history.goBack() }) {
+    return <div className="back-button__text" onClick={handleClick}>
+                <div className="back-button__icon"><BackArrow /></div>
+                <div>{text}</div>
+            </div>
 }
 
-export default withRouter(BackButton);
+export default memo(withRouter(BackButton));

@@ -4,7 +4,7 @@ import './styles.css';
 
 function ErrorWarning({ text }) {
     return <div className="error">
-        {text ? <span className="error__text">{text}</span> : ''}
+        {text ? <div className="error__text">{text}</div> : ''}
         <Lamp />
     </div>
 }

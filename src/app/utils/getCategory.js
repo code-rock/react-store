@@ -5,7 +5,7 @@ const getCategory = (arr = [], property = 'category') => {
             category.push(item[property]);
         }
     })
-
+console.log(category,'ggggg')
     return category;
 }
 

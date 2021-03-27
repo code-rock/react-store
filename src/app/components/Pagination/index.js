@@ -1,22 +1,20 @@
 import React from 'react';
 import './Pagination.css';
-import UsePageNumber from '../../hocs/UsePageNumber';
 import { NumberLink, TextLink } from './Link';
 import range from '../../utils/range';
 import { isShort, isStart, isEnd } from '../../utils/checks';
 
-export default function PaginationWrapper({ max = 4 }) {
-    const { page } = UsePageNumber();
+export default function Pagination({ max, page }) {
     const centerPages = getPaginationCenterPages(page, max);
 
     return <div className="pagination">
                 <TextLink urlPage={page} blockPage={1} text={'Назад'} />
-                {!isStart(page) && !isShort(max) && 
+                    {!isStart(page) && !isShort(max) && 
                     <>
                         <NumberLink currPage={1} urlPage={page} />
                         <span>...</span>
                     </>
-                }
+                    }
 
                 {centerPages.map(num => <NumberLink currPage={num} urlPage={page} />)}
 
@@ -26,7 +24,7 @@ export default function PaginationWrapper({ max = 4 }) {
                         <NumberLink currPage={max} urlPage={page} />
                     </> 
                 }
-                <TextLink urlPage={page} blockPage={max} text={'Вперед'} />  
+                <TextLink urlPage={page} blockPage={max} text={'Вперед'} />
            </div>
 }
 

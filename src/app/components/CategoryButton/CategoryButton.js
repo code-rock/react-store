@@ -5,11 +5,15 @@ import { getTogglePropertyFromUrl, getMultiplePropertyFromUrl } from '../../util
 
 class CategoryButton extends PureComponent {
     render() {
-        const { value } = this.props;
-        return  <NavLink to={() => getTogglePropertyFromUrl('category', value)}
+        const { value, isActive } = this.props;
+        return  <NavLink to={() => {
+                            const { search, values, url } = getTogglePropertyFromUrl('category', value);
+                            url.searchParams.set('page', 1);
+                            return { path: '/', search: url.search, state: { activeCategory: values, page: 1 }};
+                        }}
                          className='category'
                          activeClassName='checked'
-                         isActive={(location) => getMultiplePropertyFromUrl('category', location.search).includes(value)}
+                         isActive={() => isActive}
                 >
                     {value}
                </NavLink>      
