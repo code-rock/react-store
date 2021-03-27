@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import './ProductPrice.css';
+import disaggregation from '../../utils/disaggregation';
 
 class ProductPrice extends PureComponent {
     render() {
-        return <div className={`price ${this.props.size}`}>
-                    {this.props.price ? <span className="price-part">{this.props.price}</span>: ''}
-                    {this.props.curr}
+        const { size, price, curr } = this.props;
+        return <div className={`price ${size}`}>
+                    {price ? disaggregation(price.toString()).map(item => <span className="price-part">{item}</span>) : ''}
+                    {curr}
                </div>
     }
 }
